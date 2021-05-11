@@ -1,0 +1,40 @@
+@import '../../node_modules/bootstrap/scss/bootstrap';
+@import 'variables';
+
+.valign-center {
+  display: flex;
+  align-items: center;
+}
+
+.halign-center {
+  display: flex;
+  justify-content: center;
+}
+
+.inline-label {
+  width: $inline-label-prefix-width;
+}
+
+.inline-labeled-input {
+  display: inline-block;
+  width: $inline-labeled-input-width;
+}
+
+.form-table {
+  tr > td:first-child {
+     padding-inline-end: 4rem;
+  }
+  td {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+
+    .error-message {
+      color: red;
+      font-size: 0.8rem;
+    }
+  }
+}
+
+button {
+  border-radius: 20px !important;
+}

@@ -1,0 +1,50 @@
+<div *ngIf="PreLogin && Logged">
+  <div style="inline-block"><app-automatic-list-photo></app-automatic-list-photo></div>
+  <table class="table">
+    <tr>
+      <td><div style="inline-block;"></div></td>
+      <td>
+        <label class="col-form-label" style="font-family: 'Verdana';font-weight;" for="inputDefault">UserName</label>
+        <div style=" width : 40px "></div>
+      </td>
+      <!--<td><div style="inline-block; width : 10px "></div></td>-->
+      <td>
+        <input type="text" class="form-control" placeholder="UserName" id="inputDefaultinputDefault" [(ngModel)]="userName">
+      </td>
+    </tr>
+    <tr>
+      <td><div style="inline-block; width : 40px "></div></td>
+      <td>
+        <label  class="col-form-label" style="font-family: 'Verdana';font-weight;" for="exampleInputPassword1">Password</label>
+      </td>
+      <td>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" [(ngModel)]="password">
+      </td>
+    </tr>
+    <tr >
+      <td></td>
+    </tr>
+    <tr >
+      <td><div style="inline-block; width : 40px "></div></td>
+      <td>
+        <button type="button" class="btn btn-primary" (click)='LoginSubmit()' style="inline-block">Login</button>
+      </td>
+      <td style="">
+        <button type="button" class="btn btn-primary" (click)='SignInSubmit()' style="inline-block">SignIn</button>
+      </td>
+      <td>
+
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div *ngIf="!Logged">
+  <app-grocery-list-page></app-grocery-list-page>
+</div>
+
+
+
+<div *ngIf="!PreLogin">
+  <app-signinpage></app-signinpage>
+  <div>

@@ -1,0 +1,75 @@
+<div *ngIf="PreLogin">
+  <div style="inline-block"><app-automatic-list-photo></app-automatic-list-photo></div>
+<table class="table"> 
+
+   <tr> 
+		<td><div style="inline-block; width : 40px "></div></td> 
+		<td>
+			  <label class="col-form-label" style="font-family: 'Verdana';font-weight;" for="inputDefault">UserName</label>
+		</td>
+		<td>
+			<input type="text" class="form-control" placeholder="Default input" id="inputDefault" [(ngModel)]="userName">
+		</td>
+   </tr>
+	<tr>
+		<td><div style="inline-block; width : 40px "></div></td> 
+		<td>
+			<label class="col-form-label" style="font-family: 'Verdana';font-weight;" for="exampleInputPassword1">Password</label>
+		</td>
+		<td>
+			<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" [(ngModel)]="password">
+		</td>
+	</tr>
+	<tr >
+
+	  <td><div style="inline-block; width : 40px "></div></td>
+      <td> 
+	       <label for="inputEmail" class="col-form-label" style="font-family: 'Verdana';font-weight;">Email</label>
+	  </td>
+	  <td>
+           	  <input type="email" class="form-control" id="inputEmail" placeholder="Email" [(ngModel)]="Email"  >
+	   </td>  
+	</tr>
+	<tr> 
+		<td><div style="inline-block; width : 40px "></div></td> 
+		<td>
+			  <label class="col-form-label" style="font-family: 'Verdana';font-weight;" for="FirstName">First Name</label>
+		</td>
+		<td>
+			<input type="text" class="form-control" placeholder="FirstName" id="inputDefault" [(ngModel)]="FirstName">
+		</td>
+   </tr>
+   <tr> 
+		<td><div style="inline-block; width : 40px "></div></td> 
+		<td>
+			  <label class="col-form-label" style="font-family:'Verdana';font-weight;" for="inputDefault">Last Name</label>
+		</td>
+		<td>
+			<input type="text" class="form-control" placeholder="Default input" id="inputDefault" [(ngModel)]="LastName">
+		</td>
+   </tr>
+  
+   <tr >
+  
+		<td><div style="inline-block; width : 40px "></div></td> 
+		<td>
+		
+		</td>
+		<td style="">
+			<button type="button" class="btn btn-primary" (click)='SignInPage()' style="inline-block">SignIn</button>
+		</td>
+	
+
+   </tr>
+
+     
+
+</table> 
+</div>
+
+<div *ngIf="!PreLogin">
+<app-login-template></app-login-template>
+<div>
+
+
+   

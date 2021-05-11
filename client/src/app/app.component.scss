@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .main {
+    display: flex;
+    flex-grow: 1;
+
+    .image {
+      background: #d7ffff;
+      flex-grow: 1;
+    }
+
+    .page-container {
+      width: 500px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+
+      .app-title {
+        height: 15rem;
+        display: flex;
+        justify-content: center;
+        font-size: 3rem;
+        line-height: 4rem;
+        text-align: center;
+        padding-top: 2rem;
+        background: #bfbfbf;
+      }
+
+      .page {
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}
+
