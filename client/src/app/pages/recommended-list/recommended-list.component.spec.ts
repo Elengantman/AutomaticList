@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ReminderListComponent } from './reminder-list.component';
+import { RecommendedListComponent } from './recommended-list.component';
 
-describe('ReminderListComponent', () => {
-  let component: ReminderListComponent;
-  let fixture: ComponentFixture<ReminderListComponent>;
+describe('RecommendedListComponent', () => {
+  let component: RecommendedListComponent;
+  let fixture: ComponentFixture<RecommendedListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ReminderListComponent ]
+      declarations: [ RecommendedListComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ReminderListComponent);
+    fixture = TestBed.createComponent(RecommendedListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

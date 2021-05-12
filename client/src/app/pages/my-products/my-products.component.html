@@ -1,15 +1,15 @@
-<div class="form-title">ENTER YOUR PURCHASE</div>
+<div class="form-title">ADD/REMOVE FROM LIST
+  <div class="subtitle">please select items for your grocery list</div>
+</div>
 
 <table class="form-table condensed">
   <tr>
-    <th><span octicon="pencil" class="list-title-icon"></span><span>Product</span></th>
-    <th>Quantity</th>
+    <th><span octicon="pencil" class="list-title-icon"></span><span class="title">Product</span></th>
   </tr>
   <tr *ngFor="let product of products">
     <td class="center-vertical">
       <input type="checkbox" [value]="product.isSelected" (change)="onSelectProduct($event, product)">
       <span class="checkbox-label">{{product.name}}</span>
     </td>
-    <td><input type="text" value="" class="quantity" size="4" maxlength="4"></td>
   </tr>
 </table>

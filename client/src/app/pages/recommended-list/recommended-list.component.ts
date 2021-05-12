@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-reminder-list',
-  templateUrl: './reminder-list.component.html',
-  styleUrls: ['./reminder-list.component.scss']
+  selector: 'app-recommended-list',
+  templateUrl: './recommended-list.component.html',
+  styleUrls: ['./recommended-list.component.scss']
 })
-export class ReminderListComponent {
+export class RecommendedListComponent {
   products = [
     { id: 1, name: 'Cucumber', quantity: 6 },
     { id: 2, name: 'Orange', quantity: 4 },

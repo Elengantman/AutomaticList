@@ -14,10 +14,14 @@ $navbar-height: 56px;
   .main {
     display: flex;
     flex-grow: 1;
+    //position: relative;
 
     .image {
       background: #d7ffff;
       overflow: hidden;
+      //position: absolute;
+      //left: 0;
+      //top: 0;
 
       img {
         height: calc(100vh - #{$navbar-height});

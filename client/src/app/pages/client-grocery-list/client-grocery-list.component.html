@@ -1,0 +1,17 @@
+<div class="form-title">CLIENT'S GROCERY LIST</div>
+
+<div class="center-vertical">
+  <div class="dropdown-label">Select a client:</div>
+  <div class="btn-group" dropdown>
+    <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle condensed">
+      <span *ngIf="selectedIx !== -1" class="selected-dropdown-label">{{clients[selectedIx].name}}</span> <span class="caret"></span>
+    </button>
+    <ul *dropdownMenu class="dropdown-menu">
+      <li *ngFor="let client of clients; let ix = index" role="menuitem" (click)="onSelectClient(ix)">
+        <a class="dropdown-item">{{client.name}}</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<button class="show-list btn btn-primary">SHOW LIST</button>

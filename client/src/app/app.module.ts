@@ -8,16 +8,17 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './layout/navbar/navbar.component';
-import { UpdateListComponent } from './pages/update-list/update-list.component';
 import { AuthGuard } from './services/guards/auth.guard';
 import { LoginComponent } from './pages/login/login.component';
 import { Temp1Component } from './pages/temp1/temp1.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
-import { ReminderListComponent } from './pages/reminder-list/reminder-list.component';
-import { CoreListComponent } from './pages/core-list/core-list.component';
 import { OcticonsModule } from 'ngx-octicons';
 import { PurchaseComponent } from './pages/purchase/purchase.component';
+import { RecommendedListComponent } from './pages/recommended-list/recommended-list.component';
+import { MyProductsComponent } from './pages/my-products/my-products.component';
+import { ClientGroceryListComponent } from './pages/client-grocery-list/client-grocery-list.component';
+import { ClientReportComponent } from './pages/client-report/client-report.component';
 // import { AddRemoveFromListComponent } from './add-remove-from-list/add-remove-from-list.component';
 // import { MainPageComponent } from './main-page/main-page.component';
 // import { MainPhotoComponent } from './main-photo/main-photo.component';
@@ -28,14 +29,15 @@ import { PurchaseComponent } from './pages/purchase/purchase.component';
 // import { GroceryListPageComponent } from './grocery-list-page/grocery-list-page.component';
 
 const routes = [
-  { path: '',  redirectTo: 'update-list', pathMatch: 'full' },
+  { path: '',  redirectTo: 'recommended-list', pathMatch: 'full' },
   { path: 'temp1', component: Temp1Component },
   { path: 'login', component: LoginComponent },
   { path: 'sign-in', component: SignInComponent },
-  { path: 'reminder-list', component: ReminderListComponent, canActivate: [AuthGuard] },
-  { path: 'core-list', component: CoreListComponent, canActivate: [AuthGuard] },
+  { path: 'recommended-list', component: RecommendedListComponent, canActivate: [AuthGuard] },
+  { path: 'my-products', component: MyProductsComponent, canActivate: [AuthGuard] },
   { path: 'purchase', component: PurchaseComponent, canActivate: [AuthGuard] },
-  { path: 'update-list', component: UpdateListComponent, canActivate: [AuthGuard] },
+  { path: 'client-grocery-list', component: ClientGroceryListComponent, canActivate: [AuthGuard] },
+  { path: 'client-report', component: ClientReportComponent, canActivate: [AuthGuard] },
   // { path: 'signin', component: SigninpageComponent }
 ];
 
@@ -43,13 +45,14 @@ const routes = [
   declarations: [
     AppComponent,
     NavbarComponent,
-    UpdateListComponent,
     LoginComponent,
     Temp1Component,
     SignInComponent,
-    ReminderListComponent,
-    CoreListComponent,
     PurchaseComponent,
+    RecommendedListComponent,
+    MyProductsComponent,
+    ClientGroceryListComponent,
+    ClientReportComponent,
     // MainPageComponent,
     // MainPhotoComponent,
     // MainTemplateComponent,
@@ -67,7 +70,6 @@ const routes = [
     RouterModule.forRoot(routes),
 
     BsDropdownModule.forRoot(),
-    BsDropdownModule,
     OcticonsModule
   ],
   providers: [],

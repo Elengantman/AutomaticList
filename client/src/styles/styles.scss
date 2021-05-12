@@ -20,6 +20,10 @@
   width: $inline-labeled-input-width;
 }
 
+.dropdown-label {
+  margin-inline-end: 1rem;
+}
+
 .form-title {
   font-size: 1.2rem;
   font-weight: bolder;
@@ -85,4 +89,12 @@ button {
 
 .list-title-icon {
   margin-inline-end: 0.7rem;
+}
+
+.selected-dropdown-label {
+  padding-inline-end: 0.5rem;
+}
+
+.section-top-margin {
+  margin-top: 2rem;
 }

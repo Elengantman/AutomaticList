@@ -1,0 +1,12 @@
+<div class="form-title">MY GROCERY LIST:</div>
+
+<table class="form-table condensed">
+  <tr>
+    <th>Product</th>
+    <th>Quantity</th>
+  </tr>
+  <tr *ngFor="let product of products">
+    <td>{{product.name}}</td>
+    <td><span *ngIf="product.quantity > 0" class="quantity">{{product.quantity}}</span></td>
+  </tr>
+</table>

@@ -1,0 +1,31 @@
+<div class="form-title">CLIENT'S GROCERY LIST</div>
+
+<div class="center-vertical">
+  <div class="dropdown-label">Select a client:</div>
+  <div class="btn-group" dropdown>
+    <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle condensed">
+      <span *ngIf="clientIx !== -1" class="selected-dropdown-label">{{clients[clientIx].name}}</span> <span class="caret"></span>
+    </button>
+    <ul *dropdownMenu class="dropdown-menu">
+      <li *ngFor="let client of clients; let ix = index" role="menuitem" (click)="onSelectClient(ix)">
+        <a class="dropdown-item">{{client.name}}</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="center-vertical section-top-margin">
+  <div class="dropdown-label">Select a product:</div>
+  <div class="btn-group" dropdown>
+    <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle condensed">
+      <span *ngIf="productIx !== -1" class="selected-dropdown-label">{{products[productIx].name}}</span> <span class="caret"></span>
+    </button>
+    <ul *dropdownMenu class="dropdown-menu">
+      <li *ngFor="let product of products; let ix = index" role="menuitem" (click)="onSelectProduct(ix)">
+        <a class="dropdown-item">{{product.name}}</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<button class="show-list btn btn-primary">SHOW LIST</button>
