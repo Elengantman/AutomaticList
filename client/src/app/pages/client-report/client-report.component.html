@@ -1,5 +1,55 @@
 <div class="form-title">CLIENT'S GROCERY LIST</div>
 
+
+<table class="form-table">
+  <tr>
+    <td>Select a client:</td>
+    <td>
+      <div class="btn-group" dropdown>
+        <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle condensed">
+          <span *ngIf="clientIx !== -1" class="selected-dropdown-label">{{clients[clientIx].name}}</span> <span class="caret"></span>
+        </button>
+        <ul *dropdownMenu class="dropdown-menu">
+          <li *ngFor="let client of clients; let ix = index" role="menuitem" (click)="onSelectClient(ix)">
+            <a class="dropdown-item">{{client.name}}</a>
+          </li>
+        </ul>
+      </div>
+    </td>
+  </tr>
+
+  <tr>
+    <td>Select a product:</td>
+    <td>
+      <div class="btn-group" dropdown>
+        <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle condensed">
+          <span *ngIf="productIx !== -1" class="selected-dropdown-label">{{products[productIx].name}}</span> <span class="caret"></span>
+        </button>
+        <ul *dropdownMenu class="dropdown-menu">
+          <li *ngFor="let product of products; let ix = index" role="menuitem" (click)="onSelectProduct(ix)">
+            <a class="dropdown-item">{{product.name}}</a>
+          </li>
+        </ul>
+      </div>
+    </td>
+  </tr>
+
+  <tr>
+    <td>Select date range:</td>
+    <td>
+      <input type="text"
+             class="form-control date-range"
+             bsDaterangepicker
+             [bsConfig]="{ rangeInputFormat : 'DD/MM/YYYY' }">
+    </td>
+  </tr>
+</table>
+
+
+<button class="show-report btn btn-primary">SHOW REPORT</button>
+
+
+<!--
 <div class="center-vertical">
   <div class="dropdown-label">Select a client:</div>
   <div class="btn-group" dropdown>
@@ -29,13 +79,10 @@
 </div>
 
 <div class="center-vertical section-top-margin">
-  <div class="dropdown-label">Select date range:</div>
+  <div class="dropdown-label">Select dates:</div>
   <input type="text"
          placeholder="Daterangepicker"
          class="form-control"
          bsDaterangepicker>
 </div>
-
-
-
-<button class="show-list btn btn-primary">SHOW LIST</button>
+-->
