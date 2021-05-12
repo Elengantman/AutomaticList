@@ -1,25 +1,24 @@
 <div class="container">
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <table class="form-table">
       <tr>
         <td>User Name</td>
-        <td><input class="form-control inline-labeled-input" formControlName="userName" placeholder="Enter user name"></td>
+        <td><input class="form-control" formControlName="userName" placeholder="Enter user name"></td>
       </tr>
       <tr>
         <td>Password</td>
-        <td><input class="form-control inline-labeled-input" formControlName="password" placeholder="Enter password"></td>
+        <td><input class="form-control" formControlName="password" placeholder="Enter password"></td>
       </tr>
       <tr>
         <td></td>
-        <td class="buttons">
+        <td class="buttons-row buttons">
           <button type="submit" class="btn btn-primary">LOG IN</button>
           <button class="btn btn-primary">SIGN IN</button>
         </td>
       </tr>
       <tr>
         <td></td>
-        <td><span class="error-message halign-center">{{errorMessage}}</span>
-        </td>
+        <td class="error-message halign-center">{{errorMessage}}</td>
       </tr>
     </table>
   </form>

@@ -1,0 +1,36 @@
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <table class="form-table">
+      <tr>
+        <td>First Name</td>
+        <td><input class="form-control" formControlName="firstName" placeholder="Enter first name"></td>
+      </tr>
+      <tr>
+        <td>Last Name</td>
+        <td><input class="form-control" formControlName="lastName" placeholder="Enter last name"></td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td><input type="email" class="form-control" formControlName="email" placeholder="Enter email"></td>
+      </tr>
+      <tr>
+        <td>User Name</td>
+        <td><input class="form-control" formControlName="userName" placeholder="Enter user name"></td>
+      </tr>
+      <tr>
+        <td>Password</td>
+        <td><input class="form-control" formControlName="password" placeholder="Enter password"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td class="button-row">
+          <button type="submit" class="btn btn-primary">SIGN IN</button>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td class="error-message">{{errorMessage}}</td>
+      </tr>
+    </table>
+  </form>
+</div>

@@ -13,7 +13,7 @@ import { AuthGuard } from './services/guards/auth.guard';
 import { LoginComponent } from './pages/login/login.component';
 import { Temp1Component } from './pages/temp1/temp1.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { SigninComponent } from './pages/signin/signin.component';
+import { SignInComponent } from './pages/sign-in/sign-in.component';
 // import { AddRemoveFromListComponent } from './add-remove-from-list/add-remove-from-list.component';
 // import { MainPageComponent } from './main-page/main-page.component';
 // import { MainPhotoComponent } from './main-photo/main-photo.component';
@@ -27,6 +27,7 @@ const routes = [
   { path: '',  redirectTo: 'update-list', pathMatch: 'full' },
   { path: 'temp1', component: Temp1Component },
   { path: 'login', component: LoginComponent },
+  { path: 'sign-in', component: SignInComponent },
   { path: 'update-list', component: UpdateListComponent, canActivate: [AuthGuard] },
   // { path: 'signin', component: SigninpageComponent }
 ];
@@ -38,7 +39,7 @@ const routes = [
     UpdateListComponent,
     LoginComponent,
     Temp1Component,
-    SigninComponent,
+    SignInComponent,
     // MainPageComponent,
     // MainPhotoComponent,
     // MainTemplateComponent,

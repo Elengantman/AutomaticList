@@ -3,11 +3,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'app-sign-in',
+  templateUrl: './sign-in.component.html',
+  styleUrls: ['./sign-in.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class SignInComponent implements OnInit {
   form: FormGroup;
   errorMessage = '';
 
@@ -17,14 +17,17 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      userName: ['', [Validators.required]],
-      password: ['', [Validators.required]]
+      firstName: ['', [Validators.required]],
+      lastName:  ['', [Validators.required]],
+      emailName: ['', [Validators.required]],
+      userName:  ['', [Validators.required]],
+      password:  ['', [Validators.required]]
     });
   }
 
   onSubmit() {
     if (!this.form.valid) {
-      this.errorMessage = 'please fill in user name and password';
+      this.errorMessage = 'please fill in all the fields';
     } else {
       this.submit();
       alert('ok');

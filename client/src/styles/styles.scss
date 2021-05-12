@@ -28,7 +28,11 @@
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
 
-    .error-message {
+    &.button-row, &.buttons-row {
+      padding-top: 1rem;
+    }
+
+    &.error-message {
       color: red;
       font-size: 0.8rem;
     }
