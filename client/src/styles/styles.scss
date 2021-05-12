@@ -1,12 +1,12 @@
 @import '../../node_modules/bootstrap/scss/bootstrap';
 @import 'variables';
 
-.valign-center {
+.center-vertical {
   display: flex;
   align-items: center;
 }
 
-.halign-center {
+.center-horizontal {
   display: flex;
   justify-content: center;
 }
@@ -21,6 +21,10 @@
 }
 
 .form-table {
+  tr > th {
+    padding-bottom: 0.6rem;
+  }
+
   tr > td:first-child {
      padding-inline-end: 4rem;
   }
@@ -37,8 +41,19 @@
       font-size: 0.8rem;
     }
   }
+
+  &.condensed {
+    td {
+      padding-top: 0.2rem;
+      padding-bottom: 0.2rem;
+    }
+  }
 }
 
 button {
   border-radius: 20px !important;
+}
+
+.dropdown-toggle {
+  padding: 0 1rem;
 }

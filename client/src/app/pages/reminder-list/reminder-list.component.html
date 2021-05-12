@@ -1,0 +1,26 @@
+<div class="btn-group" dropdown>
+  <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle">
+    menu <span class="caret"></span>
+  </button>
+  <ul *dropdownMenu class="dropdown-menu">
+    <li role="menuitem"><a class="dropdown-item" href="#">File</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Edit</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Search</a></li>
+    <li class="divider dropdown-divider"></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Recents</a>
+    </li>
+  </ul>
+</div>
+
+<div class="title">MY GROCERY LIST:</div>
+
+<table class="form-table condensed">
+  <tr>
+    <th>Product</th>
+    <th>Quantity</th>
+  </tr>
+  <tr *ngFor="let product of products">
+    <td>{{product.name}}</td>
+    <td><span *ngIf="product.quantity > 0" class="quantity">{{product.quantity}}</span></td>
+  </tr>
+</table>

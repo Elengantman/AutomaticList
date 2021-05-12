@@ -1,0 +1,16 @@
+@import 'variables';
+
+.title {
+  font-size: 1.2rem;
+  font-weight: bolder;
+  margin: 1.5rem 0 1.5rem 0;
+}
+
+.quantity {
+  border: 2px solid $quantity-bg-color;
+  border-radius: 10rem;
+  padding-inline: 1rem;
+  font-weight: 700;
+  font-size: 0.75rem;
+  color: $quantity-color;
+}

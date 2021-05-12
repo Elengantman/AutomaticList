@@ -14,6 +14,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { Temp1Component } from './pages/temp1/temp1.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
+import { ReminderListComponent } from './pages/reminder-list/reminder-list.component';
 // import { AddRemoveFromListComponent } from './add-remove-from-list/add-remove-from-list.component';
 // import { MainPageComponent } from './main-page/main-page.component';
 // import { MainPhotoComponent } from './main-photo/main-photo.component';
@@ -28,6 +29,7 @@ const routes = [
   { path: 'temp1', component: Temp1Component },
   { path: 'login', component: LoginComponent },
   { path: 'sign-in', component: SignInComponent },
+  { path: 'reminder-list', component: ReminderListComponent, canActivate: [AuthGuard] },
   { path: 'update-list', component: UpdateListComponent, canActivate: [AuthGuard] },
   // { path: 'signin', component: SigninpageComponent }
 ];
@@ -40,6 +42,7 @@ const routes = [
     LoginComponent,
     Temp1Component,
     SignInComponent,
+    ReminderListComponent,
     // MainPageComponent,
     // MainPhotoComponent,
     // MainTemplateComponent,
@@ -56,7 +59,8 @@ const routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
 
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    BsDropdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]

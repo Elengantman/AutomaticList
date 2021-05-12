@@ -1,3 +1,5 @@
+$navbar-height: 56px;
+
 * {
   margin: 0;
   padding: 0;
@@ -15,31 +17,28 @@
 
     .image {
       background: #d7ffff;
-      flex-grow: 1;
+      overflow: hidden;
+
+      img {
+        height: calc(100vh - #{$navbar-height});
+      }
     }
 
     .page-container {
-      width: 500px;
       flex-grow: 1;
       display: flex;
       flex-direction: column;
 
       .app-title {
         height: 15rem;
-        display: flex;
-        justify-content: center;
         font-size: 3rem;
         line-height: 4rem;
-        text-align: center;
         padding-top: 2rem;
         background: #bfbfbf;
       }
 
       .page {
         flex-grow: 1;
-        display: flex;
-        //align-items: center;
-        justify-content: center;
         margin-top: 5rem;
       }
     }
