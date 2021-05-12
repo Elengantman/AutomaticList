@@ -19,6 +19,7 @@ import { RecommendedListComponent } from './pages/recommended-list/recommended-l
 import { MyProductsComponent } from './pages/my-products/my-products.component';
 import { ClientGroceryListComponent } from './pages/client-grocery-list/client-grocery-list.component';
 import { ClientReportComponent } from './pages/client-report/client-report.component';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 // import { AddRemoveFromListComponent } from './add-remove-from-list/add-remove-from-list.component';
 // import { MainPageComponent } from './main-page/main-page.component';
 // import { MainPhotoComponent } from './main-photo/main-photo.component';
@@ -70,6 +71,7 @@ const routes = [
     RouterModule.forRoot(routes),
 
     BsDropdownModule.forRoot(),
+    BsDatepickerModule.forRoot(),
     OcticonsModule
   ],
   providers: [],
