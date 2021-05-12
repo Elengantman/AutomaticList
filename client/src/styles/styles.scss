@@ -20,9 +20,21 @@
   width: $inline-labeled-input-width;
 }
 
+.form-title {
+  font-size: 1.2rem;
+  font-weight: bolder;
+  margin: 1.5rem 0;
+
+  .subtitle {
+    font-size: 1rem;
+    font-weight: normal;
+  }
+}
+
 .form-table {
   tr > th {
     padding-bottom: 0.6rem;
+    text-decoration: underline;
   }
 
   tr > td:first-child {
@@ -54,6 +66,23 @@ button {
   border-radius: 20px !important;
 }
 
-.dropdown-toggle {
+.dropdown-toggle.condensed {
   padding: 0 1rem;
+}
+
+.checkbox-label {
+  padding-inline-start: 0.5rem;
+}
+
+.quantity {
+  border: 2px solid $quantity-bg-color;
+  border-radius: 10rem;
+  padding-inline: 1rem;
+  font-weight: 700;
+  font-size: 0.75rem;
+  color: $quantity-color;
+}
+
+.list-title-icon {
+  margin-inline-end: 0.7rem;
 }

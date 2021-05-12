@@ -15,6 +15,9 @@ import { Temp1Component } from './pages/temp1/temp1.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { ReminderListComponent } from './pages/reminder-list/reminder-list.component';
+import { CoreListComponent } from './pages/core-list/core-list.component';
+import { OcticonsModule } from 'ngx-octicons';
+import { PurchaseComponent } from './pages/purchase/purchase.component';
 // import { AddRemoveFromListComponent } from './add-remove-from-list/add-remove-from-list.component';
 // import { MainPageComponent } from './main-page/main-page.component';
 // import { MainPhotoComponent } from './main-photo/main-photo.component';
@@ -30,6 +33,8 @@ const routes = [
   { path: 'login', component: LoginComponent },
   { path: 'sign-in', component: SignInComponent },
   { path: 'reminder-list', component: ReminderListComponent, canActivate: [AuthGuard] },
+  { path: 'core-list', component: CoreListComponent, canActivate: [AuthGuard] },
+  { path: 'purchase', component: PurchaseComponent, canActivate: [AuthGuard] },
   { path: 'update-list', component: UpdateListComponent, canActivate: [AuthGuard] },
   // { path: 'signin', component: SigninpageComponent }
 ];
@@ -43,6 +48,8 @@ const routes = [
     Temp1Component,
     SignInComponent,
     ReminderListComponent,
+    CoreListComponent,
+    PurchaseComponent,
     // MainPageComponent,
     // MainPhotoComponent,
     // MainTemplateComponent,
@@ -60,7 +67,8 @@ const routes = [
     RouterModule.forRoot(routes),
 
     BsDropdownModule.forRoot(),
-    BsDropdownModule
+    BsDropdownModule,
+    OcticonsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

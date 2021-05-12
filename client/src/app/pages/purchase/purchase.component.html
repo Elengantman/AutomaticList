@@ -12,15 +12,15 @@
   </ul>
 </div>
 
-<div class="form-title">MY GROCERY LIST:</div>
+<div class="form-title">INSERT YOUR PURCHASE:</div>
 
 <table class="form-table condensed">
   <tr>
-    <th>Product</th>
+    <th><span octicon="pencil" class="list-title-icon"></span><span>Product</span></th>
     <th>Quantity</th>
   </tr>
   <tr *ngFor="let product of products">
     <td>{{product.name}}</td>
-    <td><span *ngIf="product.quantity > 0" class="quantity">{{product.quantity}}</span></td>
+    <td><input type="text" value="" class="quantity" size="4" maxlength="4"></td>
   </tr>
 </table>
