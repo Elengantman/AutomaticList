@@ -16,18 +16,14 @@ import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { OcticonsModule } from 'ngx-octicons';
 import { PurchaseComponent } from './pages/purchase/purchase.component';
 import { RecommendedListComponent } from './pages/recommended-list/recommended-list.component';
-import { MyProductsComponent } from './pages/my-products/my-products.component';
 import { ClientGroceryListComponent } from './pages/client-grocery-list/client-grocery-list.component';
 import { ClientReportComponent } from './pages/client-report/client-report.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-// import { AddRemoveFromListComponent } from './add-remove-from-list/add-remove-from-list.component';
-// import { MainPageComponent } from './main-page/main-page.component';
-// import { MainPhotoComponent } from './main-photo/main-photo.component';
-// import { MainTemplateComponent } from './main-template/main-template.component';
-// import { LoginTemplateComponent } from './login-template/login-template.component';
-// import { AutomaticListPhotoComponent } from './automatic-list-photo/automatic-list-photo.component';
-// import { SigninpageComponent } from './signinpage/signinpage.component';
-// import { GroceryListPageComponent } from './grocery-list-page/grocery-list-page.component';
+import { ClientGroceryTableComponent } from './pages/client-grocery-list/client-grocery-table/client-grocery-table.component';
+import { AppTableComponent } from './shared/components/app-table/app-table.component';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { ProductSetupComponent } from './pages/product-setup/product-setup.component';
+import { MyListComponent } from './pages/my-list/my-list.component';
 
 const routes = [
   { path: '',  redirectTo: 'recommended-list', pathMatch: 'full' },
@@ -35,11 +31,12 @@ const routes = [
   { path: 'login', component: LoginComponent },
   { path: 'sign-in', component: SignInComponent },
   { path: 'recommended-list', component: RecommendedListComponent, canActivate: [AuthGuard] },
-  { path: 'my-products', component: MyProductsComponent, canActivate: [AuthGuard] },
+  { path: 'my-list', component: MyListComponent, canActivate: [AuthGuard] },
   { path: 'purchase', component: PurchaseComponent, canActivate: [AuthGuard] },
   { path: 'client-grocery-list', component: ClientGroceryListComponent, canActivate: [AuthGuard] },
+  { path: 'client-grocery-table', component: ClientGroceryTableComponent, canActivate: [AuthGuard] },
   { path: 'client-report', component: ClientReportComponent, canActivate: [AuthGuard] },
-  // { path: 'signin', component: SigninpageComponent }
+  { path: 'product-setup', component: ProductSetupComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({
@@ -51,17 +48,12 @@ const routes = [
     SignInComponent,
     PurchaseComponent,
     RecommendedListComponent,
-    MyProductsComponent,
     ClientGroceryListComponent,
     ClientReportComponent,
-    // MainPageComponent,
-    // MainPhotoComponent,
-    // MainTemplateComponent,
-    // LoginTemplateComponent,
-    // AutomaticListPhotoComponent,
-    // SigninpageComponent,
-    // AddRemoveFromListComponent,
-    // GroceryListPageComponent
+    ClientGroceryTableComponent,
+    AppTableComponent,
+    ProductSetupComponent,
+    MyListComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,7 +64,8 @@ const routes = [
 
     BsDropdownModule.forRoot(),
     BsDatepickerModule.forRoot(),
-    OcticonsModule
+    OcticonsModule,
+    NgxDatatableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

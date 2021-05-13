@@ -26,10 +26,6 @@ export class ClientReportComponent {
     { id: 9, name: 'Dairy Milk' }
   ];
 
-  months = [
-
-  ]
-
   onSelectClient(ix) {
     this.clientIx = ix;
   }

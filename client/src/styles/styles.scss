@@ -12,6 +12,11 @@
   justify-content: center;
 }
 
+.horizontal-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .inline-label {
   width: $inline-label-prefix-width;
 }
@@ -43,16 +48,16 @@
     text-decoration: underline;
   }
 
-  tr > td:first-child {
+  tr > td:not(:last-child) {
      padding-inline-end: 4rem;
   }
   td {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
 
-    &.button-row, &.buttons-row {
-      padding-top: 1rem;
-    }
+    //&.button-row, &.buttons-row {
+    //  padding-top: 1rem;
+    //}
 
     &.error-message {
       color: red;
@@ -80,13 +85,15 @@ button {
   padding-inline-start: 0.5rem;
 }
 
-.quantity {
+.quantity-value {
   border: 2px solid $quantity-bg-color;
   border-radius: 10rem;
   padding-inline: 1rem;
   font-weight: 700;
   font-size: 0.75rem;
   color: $quantity-color;
+  text-align: center;
+  outline: none;
 }
 
 .list-title-icon {
@@ -101,6 +108,18 @@ button {
   margin-top: 2rem;
 }
 
-.date-range {
+.input-cell {
   width: 13rem;
+}
+
+.datatable-header {
+  height: 40px !important;
+
+  .datatable-header-inner {
+    font-weight: bold;
+  }
+}
+
+.form-action-button {
+  margin-top: 2rem;
 }

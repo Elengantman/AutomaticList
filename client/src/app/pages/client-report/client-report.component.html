@@ -4,7 +4,7 @@
 <table class="form-table">
   <tr>
     <td>Select a client:</td>
-    <td>
+    <td class="input-cell">
       <div class="btn-group" dropdown>
         <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle condensed">
           <span *ngIf="clientIx !== -1" class="selected-dropdown-label">{{clients[clientIx].name}}</span> <span class="caret"></span>
@@ -20,7 +20,7 @@
 
   <tr>
     <td>Select a product:</td>
-    <td>
+    <td class="input-cell">
       <div class="btn-group" dropdown>
         <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle condensed">
           <span *ngIf="productIx !== -1" class="selected-dropdown-label">{{products[productIx].name}}</span> <span class="caret"></span>
@@ -36,9 +36,9 @@
 
   <tr>
     <td>Select date range:</td>
-    <td>
+    <td class="input-cell">
       <input type="text"
-             class="form-control date-range"
+             class="form-control"
              bsDaterangepicker
              [bsConfig]="{ rangeInputFormat : 'DD/MM/YYYY' }">
     </td>

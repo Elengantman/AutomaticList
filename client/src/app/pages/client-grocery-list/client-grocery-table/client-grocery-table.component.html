@@ -1,0 +1,23 @@
+<div class="form-title">CLIENT GROCERY TABLE</div>
+
+<ngx-datatable
+    [rows]="rows"
+    [sorts]="[{ prop: 'date', dir: 'asc' }]"
+>
+  <ngx-datatable-column name="Product" prop="product" [sortable]="true">
+    <ng-template let-value="value" ngx-datatable-cell-template>{{value}}
+    </ng-template>
+  </ngx-datatable-column>
+
+  <ngx-datatable-column name="Date"  prop="date" [sortable]="true">
+    <ng-template let-value="value" ngx-datatable-cell-template>
+      {{ value }}
+    </ng-template>
+  </ngx-datatable-column>
+
+  <ngx-datatable-column name="Quantity" prop="quantity">
+    <ng-template let-value="value" ngx-datatable-cell-template>
+      <span class="horizontal-right quantity-cell">{{ value }}</span>
+    </ng-template>
+  </ngx-datatable-column>
+</ngx-datatable>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-client-grocery-list',
@@ -13,7 +14,13 @@ export class ClientGroceryListComponent {
     { id: 2, name: 'David Bowie' }
   ];
 
+  constructor(private router: Router) {}
+
   onSelectClient(ix) {
     this.selectedIx = ix;
   }
+  onClickSubmit() {
+    this.router.navigate(['client-grocery-table']);
+  }
+
 }

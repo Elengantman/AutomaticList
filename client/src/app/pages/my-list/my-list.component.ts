@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-my-products',
-  templateUrl: './my-products.component.html',
-  styleUrls: ['./my-products.component.scss']
+  selector: 'app-my-list',
+  templateUrl: './my-list.component.html',
+  styleUrls: ['./my-list.component.scss']
 })
-export class MyProductsComponent {
+export class MyListComponent {
   products = [
     { id: 1, name: 'Cucumber', isSelected: false },
     { id: 2, name: 'Orange', isSelected: false },
