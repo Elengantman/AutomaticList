@@ -22,7 +22,7 @@ $image-width: 1031px;
   background-attachment: fixed;
   min-height: 100vh;
   background-position: 0 $navbar-height;
-  background-size: 55%;
+  background-size: 1030px;
 
   .app-title {
     height: 15rem;
@@ -38,5 +38,6 @@ $image-width: 1031px;
   .page {
     flex-grow: 1;
     margin-top: 5rem;
+    margin-bottom: 5rem;
   }
 }
