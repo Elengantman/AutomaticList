@@ -1,17 +1,8 @@
-<div class="app">
-<!--  <app-navbar *ngIf="authService.isLoggedIn"></app-navbar>-->
-  <app-navbar class="navbar"></app-navbar>
+<app-navbar class="navbar"></app-navbar>
 
-  <div class="main">
-    <div class="image">
-      <img src="assets/images/groceries.jpg" class="center-vertical" alt="groceries">
-    </div>
-
-    <div class="page-container">
-      <div class="app-title">AUTOMATIC<br/>GROCERY<br/>LIST</div>
-      <div class="page center-horizontal">
-        <router-outlet></router-outlet>
-      </div>
-    </div>
+<div class="page-container">
+  <div class="app-title">AUTOMATIC<br/>GROCERY<br/>LIST</div>
+  <div class="page center-horizontal">
+    <router-outlet></router-outlet>
   </div>
 </div>

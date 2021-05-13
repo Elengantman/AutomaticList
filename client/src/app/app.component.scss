@@ -1,4 +1,5 @@
 $navbar-height: 56px;
+$image-width: 1031px;
 
 * {
   margin: 0;
@@ -6,49 +7,36 @@ $navbar-height: 56px;
   box-sizing: border-box;
 }
 
-.app {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-
-  .main {
-    display: flex;
-    flex-grow: 1;
-    //position: relative;
-
-    .image {
-      background: #d7ffff;
-      overflow: hidden;
-      //position: absolute;
-      //left: 0;
-      //top: 0;
-
-      img {
-        height: calc(100vh - #{$navbar-height});
-      }
-    }
-
-    .page-container {
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-
-      .app-title {
-        height: 15rem;
-        font-size: 3rem;
-        line-height: 4rem;
-        padding-top: 4rem;
-        text-align: center;
-        font-family: "Times New Roman", sans-serif;
-        font-weight: 100;
-        letter-spacing: 0.3rem;
-      }
-
-      .page {
-        flex-grow: 1;
-        margin-top: 5rem;
-      }
-    }
-  }
+.navbar {
+  position: fixed;
+  width: 100%;
 }
 
+.page-container {
+  padding-top: $navbar-height;
+  padding-inline-start: $image-width;
+  display: flex;
+  flex-direction: column;
+  background-image: url('/assets/images/groceries.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  background-position: 0 $navbar-height;
+  background-size: 55%;
+
+  .app-title {
+    height: 15rem;
+    font-size: 3rem;
+    line-height: 4rem;
+    padding-top: 4rem;
+    text-align: center;
+    font-family: "Times New Roman", sans-serif;
+    font-weight: 100;
+    letter-spacing: 0.3rem;
+  }
+
+  .page {
+    flex-grow: 1;
+    margin-top: 5rem;
+  }
+}
