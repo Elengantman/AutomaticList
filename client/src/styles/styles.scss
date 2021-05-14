@@ -17,15 +17,6 @@
   justify-content: flex-end;
 }
 
-.inline-label {
-  width: $inline-label-prefix-width;
-}
-
-.inline-labeled-input {
-  display: inline-block;
-  width: $inline-labeled-input-width;
-}
-
 .dropdown-label {
   white-space: nowrap;
   margin-inline-end: 1rem;

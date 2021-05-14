@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from  '@angular/router';
-import { HttpClient } from  '@angular/common/Http';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-signinpage',

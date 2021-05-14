@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-client-report',
@@ -26,11 +27,17 @@ export class ClientReportComponent {
     { id: 9, name: 'Dairy Milk' }
   ];
 
+  constructor(private router: Router) {}
+
   onSelectClient(ix) {
     this.clientIx = ix;
   }
 
   onSelectProduct(ix) {
     this.productIx = ix;
+  }
+
+  onClickSubmit() {
+    this.router.navigate(['client-report-table'], { state: { clientId: this.clients[this.clientIx].id }});
   }
 }

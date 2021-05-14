@@ -5,7 +5,7 @@
   <div class=" input-cell">
     <div class="btn-group" dropdown>
       <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle condensed">
-        <span *ngIf="selectedIx !== -1" class="selected-dropdown-label">{{clients[selectedIx].name}}</span> <span class="caret"></span>
+        <span *ngIf="clientIx !== -1" class="selected-dropdown-label">{{clients[clientIx].name}}</span> <span class="caret"></span>
       </button>
       <ul *dropdownMenu class="dropdown-menu">
         <li *ngFor="let client of clients; let ix = index" role="menuitem" (click)="onSelectClient(ix)">
@@ -16,4 +16,4 @@
   </div>
 </div>
 
-<button class="show-report btn btn-primary" (click)="onClickSubmit()">SHOW LIST</button>
+<button class="show-report btn btn-primary" (click)="onClickSubmit()" [disabled]="clientIx===-1">SHOW LIST</button>

@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./client-grocery-list.component.scss']
 })
 export class ClientGroceryListComponent {
-  selectedIx = -1;
+  clientIx = -1;
 
   clients = [
     { id: 1, name: 'Didi Manusi' },
@@ -17,10 +17,11 @@ export class ClientGroceryListComponent {
   constructor(private router: Router) {}
 
   onSelectClient(ix) {
-    this.selectedIx = ix;
+    this.clientIx = ix;
   }
+
   onClickSubmit() {
-    this.router.navigate(['client-grocery-table']);
+    this.router.navigate(['client-grocery-table'], { state: { clientId: this.clients[this.clientIx].id }});
   }
 
 }

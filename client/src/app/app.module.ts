@@ -8,9 +8,8 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './layout/navbar/navbar.component';
-import { AuthGuard } from './services/guards/auth.guard';
+import { AuthGuard } from './shared/services/guards/auth.guard';
 import { LoginComponent } from './pages/login/login.component';
-import { Temp1Component } from './pages/temp1/temp1.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { OcticonsModule } from 'ngx-octicons';
@@ -24,19 +23,21 @@ import { AppTableComponent } from './shared/components/app-table/app-table.compo
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { ProductSetupComponent } from './pages/product-setup/product-setup.component';
 import { MyListComponent } from './pages/my-list/my-list.component';
+import { ClientReportTableComponent } from './pages/client-report/client-report-table/client-report-table.component';
+import { AdminGuard } from './shared/services/guards/admin.guard';
 
 const routes = [
   { path: '',  redirectTo: 'recommended-list', pathMatch: 'full' },
-  { path: 'temp1', component: Temp1Component },
   { path: 'login', component: LoginComponent },
   { path: 'sign-in', component: SignInComponent },
   { path: 'recommended-list', component: RecommendedListComponent, canActivate: [AuthGuard] },
   { path: 'my-list', component: MyListComponent, canActivate: [AuthGuard] },
   { path: 'purchase', component: PurchaseComponent, canActivate: [AuthGuard] },
-  { path: 'client-grocery-list', component: ClientGroceryListComponent, canActivate: [AuthGuard] },
-  { path: 'client-grocery-table', component: ClientGroceryTableComponent, canActivate: [AuthGuard] },
-  { path: 'client-report', component: ClientReportComponent, canActivate: [AuthGuard] },
-  { path: 'product-setup', component: ProductSetupComponent, canActivate: [AuthGuard] },
+  { path: 'client-grocery-list', component: ClientGroceryListComponent, canActivate: [AuthGuard, AdminGuard] },
+  { path: 'client-grocery-table', component: ClientGroceryTableComponent, canActivate: [AuthGuard, AdminGuard] },
+  { path: 'client-report', component: ClientReportComponent, canActivate: [AuthGuard, AdminGuard] },
+  { path: 'client-report-table', component: ClientReportTableComponent, canActivate: [AuthGuard, AdminGuard] },
+  { path: 'product-setup', component: ProductSetupComponent, canActivate: [AuthGuard, AdminGuard] },
 ];
 
 @NgModule({
@@ -44,7 +45,6 @@ const routes = [
     AppComponent,
     NavbarComponent,
     LoginComponent,
-    Temp1Component,
     SignInComponent,
     PurchaseComponent,
     RecommendedListComponent,
@@ -54,6 +54,7 @@ const routes = [
     AppTableComponent,
     ProductSetupComponent,
     MyListComponent,
+    ClientReportTableComponent,
   ],
   imports: [
     BrowserModule,

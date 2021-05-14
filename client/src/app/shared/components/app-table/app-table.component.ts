@@ -1,4 +1,4 @@
-import { Component, Input, AfterViewInit } from '@angular/core';
+import { AfterViewInit, Component, Input } from '@angular/core';
 import { Ng2SmartTableComponent } from 'ng2-smart-table';
 
 @Component({

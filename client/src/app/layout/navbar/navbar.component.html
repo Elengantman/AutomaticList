@@ -6,9 +6,9 @@
       <li class="nav-item"><a class="nav-link" [routerLink]="'recommended-list'" [routerLinkActive]="'active'">Recommended List</a></li>
       <li class="nav-item"><a class="nav-link" [routerLink]="'my-list'" [routerLinkActive]="'active'">My List</a></li>
       <li class="nav-item"><a class="nav-link" [routerLink]="'purchase'" [routerLinkActive]="'active'">Purchase</a></li>
-      <li class="nav-item"><a class="nav-link" [routerLink]="'client-grocery-list'" [routerLinkActive]="'active'">Client Grocery List</a></li>
-      <li class="nav-item"><a class="nav-link" [routerLink]="'client-report'" [routerLinkActive]="'active'">Client Report</a></li>
-      <li class="nav-item"><a class="nav-link" [routerLink]="'product-setup'" [routerLinkActive]="'active'">Product Setup</a></li>
+      <li *ngIf="authService.isAdmin" class="nav-item"><a class="nav-link" [routerLink]="'client-grocery-list'" [routerLinkActive]="'active'">Client Grocery List</a></li>
+      <li *ngIf="authService.isAdmin" class="nav-item"><a class="nav-link" [routerLink]="'client-report'" [routerLinkActive]="'active'">Client Report</a></li>
+      <li *ngIf="authService.isAdmin" class="nav-item"><a class="nav-link" [routerLink]="'product-setup'" [routerLinkActive]="'active'">Product Setup</a></li>
     </ul>
   </div>
 </nav>

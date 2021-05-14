@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-client-grocery-table',
-  templateUrl: './client-grocery-table.component.html',
-  styleUrls: ['./client-grocery-table.component.scss']
+  selector: 'app-client-report-table',
+  templateUrl: './client-report-table.component.html',
+  styleUrls: ['./client-report-table.component.scss']
 })
-export class ClientGroceryTableComponent {
+export class ClientReportTableComponent {
   clientId;
 
   constructor(private router: Router) {
