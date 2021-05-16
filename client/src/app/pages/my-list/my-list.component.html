@@ -7,8 +7,8 @@
     <th><span octicon="pencil" class="list-title-icon"></span><span class="title">Product</span></th>
   </tr>
   <tr *ngFor="let product of products">
-    <td class="center-vertical">
-      <input type="checkbox" [checked]="product.isSelected" (change)="onSelectProduct($event, product)">
+    <td class="vertical-center">
+      <input type="checkbox" [(ngModel)]="product.isSelected">
       <span class="checkbox-label">{{product.name}}</span>
     </td>
   </tr>

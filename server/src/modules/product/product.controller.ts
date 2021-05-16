@@ -46,4 +46,19 @@ export class ProductController extends BaseController {
       return this.exceptionResponse(e.message);
     }
   }
+
+  @Get('/setup')
+  async getSetup() {
+console.log('dta:', );
+    try {
+console.log('dta:', );
+      // const product: Product = await this.productRepository.findOne(id);
+      // return this.successResponse(product);
+      return this.successResponse();
+    } catch(e) {
+      console.log('error getting product setup, error:', e);
+      return this.exceptionResponse(e.message);
+    }
+  }
+
 }

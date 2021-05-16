@@ -10,14 +10,14 @@
     </tr>
     <tr>
       <td></td>
-      <td class="buttons-row buttons">
+      <td class="buttons-row vertical-center">
         <button type="submit" class="btn btn-primary">LOG IN</button>
-        <button class="btn btn-primary">SIGN IN</button>
+        <a [routerLink]="'/sign-up'">create an account</a>
       </td>
     </tr>
     <tr>
       <td></td>
-      <td class="error-message center-horizontal">{{errorMessage}}</td>
+      <td class="error-message horizontal-center">{{errorMessage}}</td>
     </tr>
   </table>
 </form>

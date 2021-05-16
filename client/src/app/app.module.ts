@@ -11,7 +11,7 @@ import { NavbarComponent } from './layout/navbar/navbar.component';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { LoginComponent } from './pages/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SignInComponent } from './pages/sign-in/sign-in.component';
+import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { OcticonsModule } from 'ngx-octicons';
 import { PurchaseComponent } from './pages/purchase/purchase.component';
 import { RecommendedListComponent } from './pages/recommended-list/recommended-list.component';
@@ -30,7 +30,7 @@ import { ToastrModule } from 'ngx-toastr';
 const routes = [
   { path: '',  redirectTo: 'recommended-list', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'sign-in', component: SignInComponent },
+  { path: 'sign-up', component: SignUpComponent },
   { path: 'recommended-list', component: RecommendedListComponent, canActivate: [AuthGuard] },
   { path: 'my-list', component: MyListComponent, canActivate: [AuthGuard] },
   { path: 'purchase', component: PurchaseComponent, canActivate: [AuthGuard] },
@@ -46,7 +46,7 @@ const routes = [
     AppComponent,
     NavbarComponent,
     LoginComponent,
-    SignInComponent,
+    SignUpComponent,
     PurchaseComponent,
     RecommendedListComponent,
     ClientGroceryListComponent,
@@ -55,7 +55,7 @@ const routes = [
     AppTableComponent,
     ProductSetupComponent,
     MyListComponent,
-    ClientReportTableComponent,
+    ClientReportTableComponent
   ],
   imports: [
     BrowserModule,

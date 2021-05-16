@@ -12,6 +12,6 @@ export class Product {
   @Column()
   price: number;
 
-  @OneToOne(() => Department)
+  @Column()
   departmentId: number;
 }

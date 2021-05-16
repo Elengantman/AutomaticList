@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../shared/services/auth.service';
-import { ServerResponse } from '../../shared/models/server-response.model';
 import { ApiService } from '../../shared/services/api.service';
 import { Router } from '@angular/router';
+import { ServerResponse } from '../../shared/models/server-response.model';
 
 @Component({
-  selector: 'app-sign-in',
-  templateUrl: './sign-in.component.html',
-  styleUrls: ['./sign-in.component.scss']
+  selector: 'app-sign-up',
+  templateUrl: './sign-up.component.html',
+  styleUrls: ['./sign-up.component.scss']
 })
-export class SignInComponent implements OnInit {
+export class SignUpComponent implements OnInit {
   form: FormGroup;
   errorMessage = '';
 
@@ -39,7 +39,7 @@ export class SignInComponent implements OnInit {
   }
 
   submit() {
-    this.apiService.post('auth/sign-in', this.form.value).subscribe((response: ServerResponse) => {
+    this.apiService.post('auth/sign-up', this.form.value).subscribe((response: ServerResponse) => {
       if (!response.isSuccess) {
         this.errorMessage = response.error.message;
       } else {
@@ -47,5 +47,4 @@ export class SignInComponent implements OnInit {
         this.router.navigate(['/']);
       }
     });
-  }
-}
+  }}

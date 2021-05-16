@@ -2,3 +2,6 @@
 - unit tests
 - take off shared folder between client and server
 - comment styles.scss
+- when removing from my list, how it effects reports
+- make sure for all server data request there is *ngIf in template
+- indexes

@@ -3,13 +3,15 @@
 <table class="form-table condensed">
   <tr>
     <th><span octicon="pencil" class="list-title-icon"></span><span>Product</span></th>
+    <th>Price</th>
     <th>Quantity</th>
   </tr>
   <tr *ngFor="let product of products">
-    <td class="center-vertical">
-      <input type="checkbox" [checked]="product.isSelected" (change)="onSelectProduct($event, product)">
+    <td class="vertical-center">
+      <input type="checkbox" [(ngModel)]="product.isSelected">
       <span class="checkbox-label">{{product.name}}</span>
     </td>
+    <td class="text-right">{{product.price | number:'1.0-2'}}</td>
     <td><input type="text" [(ngModel)]="product.quantity" class="quantity-value" size="4" maxlength="4"></td>
   </tr>
 </table>

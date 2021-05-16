@@ -16,7 +16,7 @@ export class MyListController extends BaseController {
   @Get(':userName')
   async find(@Param('userName') userName) {
     try {
-      const requests = [this.myListRepository.find(), this.productRepository.find()] as Promise<any>[];
+      const requests = [this.myListRepository.find({ userName }), this.productRepository.find()] as Promise<any>[];
       const [myList, products] = await Promise.all(requests);
       const myListIds = myList.map(item => item.productId);
       const result = products.map(product => {

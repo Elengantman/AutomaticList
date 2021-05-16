@@ -3,12 +3,12 @@
 @import '~ngx-toastr/toastr';
 @import 'variables';
 
-.center-vertical {
+.vertical-center {
   display: flex;
   align-items: center;
 }
 
-.center-horizontal {
+.horizontal-center {
   display: flex;
   justify-content: center;
 }
@@ -16,6 +16,10 @@
 .horizontal-right {
   display: flex;
   justify-content: flex-end;
+}
+
+.text-right {
+  text-align: right;
 }
 
 .dropdown-label {
@@ -47,9 +51,11 @@
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
 
-    //&.button-row, &.buttons-row {
-    //  padding-top: 1rem;
-    //}
+    &.buttons-row {
+      padding-top: 1rem;
+      display: flex;
+      justify-content: space-between;
+    }
 
     &.error-message {
       color: red;

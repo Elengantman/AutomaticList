@@ -8,9 +8,9 @@
   </tr>
   <tr *ngFor="let product of products">
     <td>{{product.name}}</td>
-    <td><input type="text" class="quantity-value" size="6" maxlength="6" [value]="product.price" (change)="onChangePrice($event, product.id)"></td>
-    <td>{{departments[product.departmentId]}}</td>
+    <td><input type="text" class="quantity-value" size="6" maxlength="6" [(ngModel)]="product.price"></td>
+    <td>{{product.department}}</td>
   </tr>
 </table>
 
-<button class="btn btn-primary form-action-button">SEND</button>
+<button class="btn btn-primary form-action-button" (click)="onClickSubmit()">SEND</button>
