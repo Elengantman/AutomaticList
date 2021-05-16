@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../shared/services/auth.service';
+import { ServerResponse } from '../../shared/models/server-response.model';
+import { ApiService } from '../../shared/services/api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-in',
@@ -12,14 +15,16 @@ export class SignInComponent implements OnInit {
   errorMessage = '';
 
   constructor(private formBuilder: FormBuilder,
-              private authService: AuthService) {
+              private authService: AuthService,
+              private apiService: ApiService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       firstName: ['', [Validators.required]],
       lastName:  ['', [Validators.required]],
-      emailName: ['', [Validators.required]],
+      email:     ['', [Validators.required]],
       userName:  ['', [Validators.required]],
       password:  ['', [Validators.required]]
     });
@@ -30,22 +35,17 @@ export class SignInComponent implements OnInit {
       this.errorMessage = 'please fill in all the fields';
     } else {
       this.submit();
-      alert('ok');
     }
   }
 
   submit() {
-    // this.submitted = true;
-    // this.authService.login({ userName: this.f.userName.value, password: this.f.password.value })
-    //     .subscribe((response: ServerResponse) => {
-    //           if (response.isSuccess) {
-    //             this.router.navigate(['/dashboard']);
-    //           } else {
-    //             this.error = response.error.message;
-    //           }
-    //         },
-    //         error => {
-    //           this.error = error ? error.message || error : 'an error has occurred';
-    //         });
+    this.apiService.post('auth/sign-in', this.form.value).subscribe((response: ServerResponse) => {
+      if (!response.isSuccess) {
+        this.errorMessage = response.error.message;
+      } else {
+        this.authService.setUser(response.data);
+        this.router.navigate(['/']);
+      }
+    });
   }
 }

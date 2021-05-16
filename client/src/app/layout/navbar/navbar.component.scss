@@ -1,8 +1,19 @@
 .navbar {
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  .navbar-brand {
+    padding-top: 0;
+    margin-inline-end: 3rem;
+  }
+
+  .user {
+    color: white;
+    font-weight: normal;
+    font-size: 0.9rem;
+  }
 }
 
-.navbar-brand {
-  padding-top: 0;
-  margin-inline-end: 3rem;
-}
+//right: 1rem;
+//left: calc(100vw - 14rem);

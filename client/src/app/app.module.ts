@@ -8,9 +8,9 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './layout/navbar/navbar.component';
-import { AuthGuard } from './shared/services/guards/auth.guard';
+import { AuthGuard } from './shared/guards/auth.guard';
 import { LoginComponent } from './pages/login/login.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { OcticonsModule } from 'ngx-octicons';
 import { PurchaseComponent } from './pages/purchase/purchase.component';
@@ -24,7 +24,8 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { ProductSetupComponent } from './pages/product-setup/product-setup.component';
 import { MyListComponent } from './pages/my-list/my-list.component';
 import { ClientReportTableComponent } from './pages/client-report/client-report-table/client-report-table.component';
-import { AdminGuard } from './shared/services/guards/admin.guard';
+import { AdminGuard } from './shared/guards/admin.guard';
+import { ToastrModule } from 'ngx-toastr';
 
 const routes = [
   { path: '',  redirectTo: 'recommended-list', pathMatch: 'full' },
@@ -60,13 +61,15 @@ const routes = [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
 
     BsDropdownModule.forRoot(),
     BsDatepickerModule.forRoot(),
     OcticonsModule,
-    NgxDatatableModule
+    NgxDatatableModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,6 @@
 @import '../../node_modules/bootstrap/scss/bootstrap';
 @import '../../node_modules/ngx-bootstrap/datepicker/bs-datepicker.css';
+@import '~ngx-toastr/toastr';
 @import 'variables';
 
 .center-vertical {
@@ -113,4 +114,8 @@ button {
 
 .form-action-button {
   margin-top: 2rem;
+}
+
+.clickable {
+  cursor: pointer;
 }

@@ -7,11 +7,11 @@
   </tr>
   <tr *ngFor="let product of products">
     <td class="center-vertical">
-      <input type="checkbox" [value]="product.isSelected" (change)="onSelectProduct($event, product)">
+      <input type="checkbox" [checked]="product.isSelected" (change)="onSelectProduct($event, product)">
       <span class="checkbox-label">{{product.name}}</span>
     </td>
-    <td><input type="text" value="" class="quantity-value" size="4" maxlength="4"></td>
+    <td><input type="text" [(ngModel)]="product.quantity" class="quantity-value" size="4" maxlength="4"></td>
   </tr>
 </table>
 
-<button class="btn btn-primary form-action-button">SEND</button>
+<button class="btn btn-primary form-action-button" (click)="onClickSubmit()">SEND</button>

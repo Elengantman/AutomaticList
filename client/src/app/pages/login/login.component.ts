@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../shared/services/auth.service';
+import { ApiService } from '../../shared/services/api.service';
+import { ServerResponse } from '../../shared/models/server-response.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +15,9 @@ export class LoginComponent implements OnInit {
   errorMessage = '';
 
   constructor(private formBuilder: FormBuilder,
-              private authService: AuthService) {
+              private authService: AuthService,
+              private apiService: ApiService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -27,22 +32,17 @@ export class LoginComponent implements OnInit {
       this.errorMessage = 'please fill in user name and password';
     } else {
       this.submit();
-      alert('ok');
     }
   }
 
   submit() {
-    // this.submitted = true;
-    // this.authService.login({ userName: this.f.userName.value, password: this.f.password.value })
-    //     .subscribe((response: ServerResponse) => {
-    //           if (response.isSuccess) {
-    //             this.router.navigate(['/dashboard']);
-    //           } else {
-    //             this.error = response.error.message;
-    //           }
-    //         },
-    //         error => {
-    //           this.error = error ? error.message || error : 'an error has occurred';
-    //         });
+    this.apiService.post('auth/login', this.form.value).subscribe((response: ServerResponse) => {
+      if (!response.isSuccess) {
+        this.errorMessage = response.error.message;
+      } else {
+        this.authService.setUser(response.data);
+        this.router.navigate(['/']);
+      }
+    });
   }
 }

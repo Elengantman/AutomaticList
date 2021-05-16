@@ -2,16 +2,16 @@
   <div class="subtitle">please select items for your grocery list</div>
 </div>
 
-<table class="form-table condensed">
+<table *ngIf="products" class="form-table condensed">
   <tr>
     <th><span octicon="pencil" class="list-title-icon"></span><span class="title">Product</span></th>
   </tr>
   <tr *ngFor="let product of products">
     <td class="center-vertical">
-      <input type="checkbox" [value]="product.isSelected" (change)="onSelectProduct($event, product)">
+      <input type="checkbox" [checked]="product.isSelected" (change)="onSelectProduct($event, product)">
       <span class="checkbox-label">{{product.name}}</span>
     </td>
   </tr>
 </table>
 
-<button class="btn btn-primary form-action-button">SEND</button>
+<button class="btn btn-primary form-action-button" (click)="onClickSubmit()">SEND</button>

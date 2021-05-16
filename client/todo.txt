@@ -1,3 +1,4 @@
-1. make navbar and left image static while scrolling
-2. unit tests
-3. navbar items show only on login
+- change project names to frontend and backend
+- unit tests
+- take off shared folder between client and server
+- comment styles.scss
