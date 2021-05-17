@@ -1,16 +1,13 @@
 <div class="form-title">CLIENT'S REPORT</div>
 
-<ngx-datatable
-    [rows]="rows"
-    [sorts]="[{ prop: 'date', dir: 'asc' }]"
->
+<ngx-datatable [rows]="rows">
   <ngx-datatable-column name="Date"  prop="date" [sortable]="true">
     <ng-template let-value="value" ngx-datatable-cell-template>
       {{ value }}
     </ng-template>
   </ngx-datatable-column>
 
-  <ngx-datatable-column name="Product" prop="product" [sortable]="true">
+  <ngx-datatable-column name="Product" prop="name" [sortable]="true">
     <ng-template let-value="value" ngx-datatable-cell-template>{{value}}
     </ng-template>
   </ngx-datatable-column>

@@ -1,7 +1,7 @@
 import { Body, Controller, Delete, Get, Param, Post, Put, Request, UseGuards } from '@nestjs/common';
 import { BaseController } from "../../shared/base-classes/base.controller";
 import { InjectRepository } from "@nestjs/typeorm";
-import { InsertResult, Repository } from 'typeorm';
+import { Between, InsertResult, LessThanOrEqual, MoreThanOrEqual, Repository } from 'typeorm';
 import { Purchase } from './purchase.entity';
 import { Product } from '../product/product.entity';
 import { MyList } from '../my-list/my-list.entity';
@@ -33,14 +33,33 @@ export class PurchaseController extends BaseController {
     }
   }
 
+  @Post('report/:userName')
+  async report(@Param('userName') userName, @Body() query) {
+    try {
+      const purchaseQuery: any = { where: { userName }, order: { date: 'DESC' } };
+      if (query?.productId) purchaseQuery.where.productId = query.productId;
+      if (query?.fromDate) purchaseQuery.where.date = Between(query.fromDate, query.toDate);
+      const requests = [this.purchaseRepository.find(purchaseQuery), this.productRepository.find()] as Promise<any>[];
+      let [purchases, products] = await Promise.all(requests);
+      const results = purchases.map(purchase => {
+        const name = products.find(product => product.id === purchase.productId)?.name || '* obsolete';
+        return { date: purchase.date, name, quantity: purchase.quantity };
+      })
+      return this.successResponse(results);
+    } catch(e) {
+      console.log('error getting purchase report', e);
+      return this.exceptionResponse(e.message);
+    }
+  }
+
   @Post(':userName')
   async insert(@Param('userName') userName, @Body() items) {
     try {
       const purchaseId = (new Date()).toISOString().replace('T', ' ').substr(0, 23) + '-' + String(Math.round(Math.random() * 10000)).padStart(4, '0');
       const date = purchaseId.substr(0, 10);
       const records = items.map(item => ({ userName, purchaseId, date, productId: item.id, quantity: item.quantity }));
-      // const result: InsertResult = await this.purchaseRepository.insert(records);
-      // if (result?.raw?.affectedRows !== records.length) return this.errorResponse('error updating purchase');
+      const result: InsertResult = await this.purchaseRepository.insert(records);
+      if (result?.raw?.affectedRows !== records.length) return this.errorResponse('error updating purchase');
       const isSuccess = await this.updateRecommendations(userName, date, items);
       if (!isSuccess) return this.errorResponse('error updating recommendation');
       return this.successResponse();

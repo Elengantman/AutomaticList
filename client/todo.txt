@@ -4,4 +4,6 @@
 - comment styles.scss
 - when removing from my list, how it effects reports
 - make sure for all server data request there is *ngIf in template
+- make sure all references in templates are for public
 - indexes
+- product setup - complete delete and maybe edit?

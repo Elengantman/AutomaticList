@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../../shared/services/api.service';
 import { AuthService } from '../../shared/services/auth.service';
-import { forkJoin } from 'rxjs';
 import { ServerResponse } from '../../shared/models/server-response.model';
 import { ToastrService } from 'ngx-toastr';
 

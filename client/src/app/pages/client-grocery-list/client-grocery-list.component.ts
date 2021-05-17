@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApiService } from '../../shared/services/api.service';
+import { ToastrService } from 'ngx-toastr';
+import { ServerResponse } from '../../shared/models/server-response.model';
 
 @Component({
   selector: 'app-client-grocery-list',
@@ -7,21 +10,27 @@ import { Router } from '@angular/router';
   styleUrls: ['./client-grocery-list.component.scss']
 })
 export class ClientGroceryListComponent {
-  clientIx = -1;
+  userName = '';
+  users;
 
-  clients = [
-    { id: 1, name: 'Didi Manusi' },
-    { id: 2, name: 'David Bowie' }
-  ];
+  constructor(private router: Router,
+              private apiService: ApiService,
+              private toastrService: ToastrService) {
+    this.apiService.get(`user`).subscribe((response: ServerResponse) => {
+      if (!response?.isSuccess) {
+        this.toastrService.error(response?.error?.message || 'error getting users');
+      } else {
+        this.users = response.data.map(user => ({ userName: user.userName, name: `${user.firstName} ${user.lastName}`}));
+      }
+    });
+  }
 
-  constructor(private router: Router) {}
-
-  onSelectClient(ix) {
-    this.clientIx = ix;
+  onSelectUser(ix) {
+    this.userName = this.users[ix].userName;
   }
 
   onClickSubmit() {
-    this.router.navigate(['client-grocery-table'], { state: { clientId: this.clients[this.clientIx].id }});
+    this.router.navigate(['client-grocery-table'], { state: { userName: this.userName }});
   }
 
 }
