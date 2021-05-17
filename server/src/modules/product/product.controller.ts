@@ -47,16 +47,14 @@ export class ProductController extends BaseController {
     }
   }
 
-  @Get('/setup')
-  async getSetup() {
-console.log('dta:', );
+  @Delete(':id')
+  async delete(@Param('id') id) {
     try {
-console.log('dta:', );
-      // const product: Product = await this.productRepository.findOne(id);
-      // return this.successResponse(product);
+      const result = await this.productRepository.delete(id);
+      if (result?.raw?.affectedRows !== 0 && result?.raw?.affectedRows !== 1) this.errorResponse('error deleting product');
       return this.successResponse();
     } catch(e) {
-      console.log('error getting product setup, error:', e);
+      console.log('error deleting product, error:', e);
       return this.exceptionResponse(e.message);
     }
   }

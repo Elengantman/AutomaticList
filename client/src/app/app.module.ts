@@ -26,6 +26,8 @@ import { MyListComponent } from './pages/my-list/my-list.component';
 import { ClientReportTableComponent } from './pages/client-report/client-report-table/client-report-table.component';
 import { AdminGuard } from './shared/guards/admin.guard';
 import { ToastrModule } from 'ngx-toastr';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 
 const routes = [
   { path: '',  redirectTo: 'recommended-list', pathMatch: 'full' },
@@ -69,7 +71,9 @@ const routes = [
     BsDatepickerModule.forRoot(),
     OcticonsModule,
     NgxDatatableModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    ModalModule.forRoot(),
+    TypeaheadModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,7 @@
 import { Body, Controller, Delete, Get, Param, Post, Put, Request, UseGuards } from '@nestjs/common';
 import { BaseController } from "../../shared/base-classes/base.controller";
 import { InjectRepository } from "@nestjs/typeorm";
-import { Between, InsertResult, LessThanOrEqual, MoreThanOrEqual, Repository } from 'typeorm';
+import { Between, InsertResult, Repository } from 'typeorm';
 import { Purchase } from './purchase.entity';
 import { Product } from '../product/product.entity';
 import { MyList } from '../my-list/my-list.entity';

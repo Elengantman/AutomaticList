@@ -1,16 +1,51 @@
 <div class="form-title">PRODUCT SETUP</div>
 
+<form [formGroup]="addForm" class="add-form horizontal-center vertical-center" (ngSubmit)="onClickAdd()">
+      <input class="form-control field" formControlName="name" placeholder="Enter product name"
+             [ngClass]="{'input-error': isAddState && addForm.controls.name.invalid}">
+      <input type="number" class="form-control field" formControlName="price" placeholder="Enter price"
+             [ngClass]="{'input-error': isAddState && addForm.controls.price.invalid}">
+      <input formControlName="department"
+             [typeahead]="departmentNames"
+             [typeaheadOptionsLimit]="7"
+             [typeaheadMinLength]="0"
+             placeholder="Enter department"
+             class="form-control field"
+             [ngClass]="{'input-error': isAddState && addForm.controls.price.invalid}">
+      <button type="submit" class="btn btn-primary">ADD</button>
+</form>
+
+<div class="error-message">{{addErrorMessage}}</div>
+
 <table class="form-table condensed">
   <tr>
     <th>Product</th>
     <th>Price</th>
     <th>Department</th>
+    <th>Delete</th>
   </tr>
   <tr *ngFor="let product of products">
     <td>{{product.name}}</td>
     <td><input type="text" class="quantity-value" size="6" maxlength="6" [(ngModel)]="product.price"></td>
     <td>{{product.department}}</td>
+    <td class="horizontal-center"><span octicon="trash" class="clickable" (click)="onClickDelete(product.id, deleteTemplate)"></span></td>
   </tr>
 </table>
 
 <button class="btn btn-primary form-action-button" (click)="onClickSubmit()">SEND</button>
+
+<ng-template #deleteTemplate>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Confirm Delete</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body text-center">
+    <p>Are you sure you want to delete {{deleteName}}?</p>
+    <div class="buttons-row">
+      <button type="button" class="btn btn-primary" (click)="onConfirmDelete()">Yes</button>&nbsp;&nbsp;&nbsp;&nbsp;
+      <button type="button" class="btn btn-primary" (click)="modalRef.hide()">No</button>
+    </div>
+  </div>
+</ng-template>

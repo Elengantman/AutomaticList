@@ -9,6 +9,7 @@ import { MyListModule } from './modules/my-list/my-list.module';
 import { PurchaseModule } from './modules/purchase/purchase.module';
 import { ProductSetupModule } from './modules/product-setup/product-setup.module';
 import { RecommendModule } from './modules/recommend/recommend.module';
+import { DepartmentModule } from './modules/department/department.module';
 
 @Module({
   imports: [
@@ -27,7 +28,8 @@ import { RecommendModule } from './modules/recommend/recommend.module';
     MyListModule,
     PurchaseModule,
     ProductSetupModule,
-    RecommendModule
+    RecommendModule,
+    DepartmentModule
   ],
   controllers: [AppController],
   providers: [AppService],
