@@ -3,14 +3,19 @@
 @import '~ngx-toastr/toastr';
 @import 'variables';
 
+
+/*************************/
+/*      G L O B A L      */
+/*************************/
+
 .vertical-center {
   display: flex;
   align-items: center;
 }
 
 .horizontal-center {
-  display: flex;
-  justify-content: center;
+  display: flex !important;
+  justify-content: center !important;
 }
 
 .horizontal-right {
@@ -26,6 +31,54 @@
   white-space: nowrap;
   margin-inline-end: 1rem;
 }
+
+button {
+  border-radius: 20px !important;
+}
+
+.dropdown-toggle.condensed {
+  padding: 0 1rem;
+}
+
+.checkbox-label {
+  padding-inline-start: 0.5rem;
+}
+
+.quantity-value {
+  border: 2px solid $quantity-bg-color;
+  border-radius: 10rem;
+  padding-inline: 1rem;
+  font-weight: 700;
+  font-size: 0.75rem;
+  color: $quantity-color;
+  text-align: center;
+  outline: none;
+}
+
+.list-title-icon {
+  margin-inline-end: 0.7rem;
+}
+
+.selected-dropdown-label {
+  padding-inline-end: 0.5rem;
+}
+
+.section-top-margin {
+  margin-top: 2rem;
+}
+
+.input-cell {
+  width: 13rem;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+
+/*********************/
+/*      F O R M      */
+/*********************/
 
 .form-title {
   font-size: 1.2rem;
@@ -71,57 +124,20 @@
   }
 }
 
-button {
-  border-radius: 20px !important;
-}
-
-.dropdown-toggle.condensed {
-  padding: 0 1rem;
-}
-
-.checkbox-label {
-  padding-inline-start: 0.5rem;
-}
-
-.quantity-value {
-  border: 2px solid $quantity-bg-color;
-  border-radius: 10rem;
-  padding-inline: 1rem;
-  font-weight: 700;
-  font-size: 0.75rem;
-  color: $quantity-color;
-  text-align: center;
-  outline: none;
-}
-
-.list-title-icon {
-  margin-inline-end: 0.7rem;
-}
-
-.selected-dropdown-label {
-  padding-inline-end: 0.5rem;
-}
-
-.section-top-margin {
+.form-action-button {
   margin-top: 2rem;
 }
 
-.input-cell {
-  width: 13rem;
-}
+
+/***********************/
+/*      T A B L E      */
+/***********************/
 
 .datatable-header {
   height: 40px !important;
 
   .datatable-header-inner {
     font-weight: bold;
+    text-decoration: underline;
   }
-}
-
-.form-action-button {
-  margin-top: 2rem;
-}
-
-.clickable {
-  cursor: pointer;
 }

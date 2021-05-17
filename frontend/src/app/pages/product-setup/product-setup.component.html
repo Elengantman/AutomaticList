@@ -1,6 +1,7 @@
 <div class="form-title">PRODUCT SETUP</div>
 
-<form [formGroup]="addForm" class="add-form horizontal-center vertical-center" (ngSubmit)="onClickAdd()">
+<form [formGroup]="addForm" *ngIf="products && departments"
+      class="add-form horizontal-center vertical-center" (ngSubmit)="onClickAdd()">
       <input class="form-control field" formControlName="name" placeholder="Enter product name"
              [ngClass]="{'input-error': isAddState && addForm.controls.name.invalid}">
       <input type="number" class="form-control field" formControlName="price" placeholder="Enter price"

@@ -2,16 +2,16 @@
   <div class="subtitle">please select items for your grocery list</div>
 </div>
 
-<table *ngIf="products" class="form-table condensed">
-  <tr>
-    <th><span octicon="pencil" class="list-title-icon"></span><span class="title">Product</span></th>
-  </tr>
-  <tr *ngFor="let product of products">
-    <td class="vertical-center">
-      <input type="checkbox" [(ngModel)]="product.isSelected">
-      <span class="checkbox-label">{{product.name}}</span>
-    </td>
-  </tr>
-</table>
+<ngx-datatable *ngIf="products" [rows]="products" [sorts]="[{ prop: 'name' }]">
+  <ngx-datatable-column name="Product" prop="name">
+    <ng-template ngx-datatable-header-template>
+      <span octicon="pencil" class="list-title-icon"></span><span class="title">Product</span>
+    </ng-template>
+    <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
+      <input type="checkbox" [(ngModel)]="row.isSelected">
+      <span class="checkbox-label">{{value}}</span>
+    </ng-template>
+  </ngx-datatable-column>
+</ngx-datatable>
 
 <button class="btn btn-primary form-action-button" (click)="onClickSubmit()">SEND</button>

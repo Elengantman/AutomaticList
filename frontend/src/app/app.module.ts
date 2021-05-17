@@ -19,7 +19,6 @@ import { ClientGroceryListComponent } from './pages/client-grocery-list/client-g
 import { ClientReportComponent } from './pages/client-report/client-report.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { ClientGroceryTableComponent } from './pages/client-grocery-list/client-grocery-table/client-grocery-table.component';
-import { AppTableComponent } from './shared/components/app-table/app-table.component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { ProductSetupComponent } from './pages/product-setup/product-setup.component';
 import { MyListComponent } from './pages/my-list/my-list.component';
@@ -54,7 +53,6 @@ const routes = [
     ClientGroceryListComponent,
     ClientReportComponent,
     ClientGroceryTableComponent,
-    AppTableComponent,
     ProductSetupComponent,
     MyListComponent,
     ClientReportTableComponent

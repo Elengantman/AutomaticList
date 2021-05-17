@@ -1,6 +1,6 @@
 <div class="form-title">CLIENT GROCERY TABLE</div>
 
-<ngx-datatable [rows]="rows">
+<ngx-datatable *ngIf="rows" [rows]="rows">
   <ngx-datatable-column name="Date"  prop="date" [sortable]="true">
     <ng-template let-value="value" ngx-datatable-cell-template>
       {{ value }}

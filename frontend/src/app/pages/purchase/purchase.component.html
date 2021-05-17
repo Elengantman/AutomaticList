@@ -1,19 +1,27 @@
 <div class="form-title">ENTER YOUR PURCHASE</div>
 
-<table class="form-table condensed">
-  <tr>
-    <th><span octicon="pencil" class="list-title-icon"></span><span>Product</span></th>
-    <th>Price</th>
-    <th>Quantity</th>
-  </tr>
-  <tr *ngFor="let product of products">
-    <td class="vertical-center">
-      <input type="checkbox" [(ngModel)]="product.isSelected">
-      <span class="checkbox-label">{{product.name}}</span>
-    </td>
-    <td class="text-right">{{product.price | number:'1.0-2'}}</td>
-    <td><input type="text" [(ngModel)]="product.quantity" class="quantity-value" size="4" maxlength="4"></td>
-  </tr>
-</table>
+<ngx-datatable *ngIf="products" [rows]="products" [sorts]="[{ prop: 'name' }]">
+  <ngx-datatable-column name="Product" prop="name" [sortable]="true">
+    <ng-template ngx-datatable-header-template>
+      <span octicon="pencil" class="list-title-icon"></span><span class="title">Product</span>
+    </ng-template>
+    <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
+      <input type="checkbox" [(ngModel)]="row.isSelected">
+      <span class="checkbox-label">{{value}}</span>
+    </ng-template>
+  </ngx-datatable-column>
+
+  <ngx-datatable-column name="Price" prop="price" headerClass="horizontal-center" cellClass="horizontal-center">
+    <ng-template let-value="value" ngx-datatable-cell-template>
+      {{value | number:'1.0-2'}}
+    </ng-template>
+  </ngx-datatable-column>
+
+  <ngx-datatable-column name="Quantity" prop="quantity" headerClass="horizontal-center" cellClass="horizontal-center">
+    <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
+      <input [(ngModel)]="row.quantity" class="quantity-value" size="4" maxlength="4">
+    </ng-template>
+  </ngx-datatable-column>
+</ngx-datatable>
 
 <button class="btn btn-primary form-action-button" (click)="onClickSubmit()">SEND</button>

@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { ApiService } from '../../shared/services/api.service';
+import { AuthService } from '../../shared/services/auth.service';
+import { ToastrService } from 'ngx-toastr';
+import { ServerResponse } from '../../shared/models/server-response.model';
 
 @Component({
   selector: 'app-recommended-list',
@@ -6,15 +10,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./recommended-list.component.scss']
 })
 export class RecommendedListComponent {
-  products = [
-    { id: 1, name: 'Cucumber', quantity: 6 },
-    { id: 2, name: 'Orange', quantity: 4 },
-    { id: 3, name: 'Cauliflower', quantity: 3 },
-    { id: 4, name: 'Beef', quantity: 0 },
-    { id: 5, name: 'Cheddar Cheese', quantity: 0 },
-    { id: 6, name: 'Labane', quantity: 1 },
-    { id: 7, name: 'Chocolate', quantity: 4 },
-    { id: 8, name: 'Yogurt', quantity: 7 },
-    { id: 9, name: 'Dairy Milk', quantity: 2 }
-  ];
+  products;
+
+  constructor(private apiService: ApiService,
+              private authService: AuthService,
+              private toastrService: ToastrService) {
+    this.apiService.get(`recommend/${this.authService.user.userName}`).subscribe((response: ServerResponse) => {
+      if (!response?.isSuccess) {
+        this.toastrService.error(response?.error?.message || 'error getting recommend list');
+      } else {
+        this.products = response.data.map(item => ({ ...item, isOrgSelected: item.isSelected  }));
+      }
+    });
+  }
+
 }

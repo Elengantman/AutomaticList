@@ -24,10 +24,6 @@ export class MyListComponent {
     });
   }
 
-  onSelectProduct(e, product) {
-    product.isSelected = e.target.checked;
-  }
-
   onClickSubmit() {
     const add = [];
     const remove = [];

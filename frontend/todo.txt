@@ -1,9 +1,3 @@
-- change project names to frontend and backend
 - unit tests
-- take off shared folder between client and server
 - comment styles.scss
-- when removing from my list, how it effects reports
-- make sure for all server data request there is *ngIf in template
-- make sure all references in templates are for public
-- indexes
-- product setup - complete delete and maybe edit?
+- tables in alpha betical order

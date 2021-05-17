@@ -6,7 +6,6 @@ import { ServerResponse } from '../../shared/models/server-response.model';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { forkJoin } from 'rxjs';
-import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-product-setup',
