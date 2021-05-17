@@ -4,6 +4,7 @@ import { AuthService } from '../../shared/services/auth.service';
 import { ApiService } from '../../shared/services/api.service';
 import { Router } from '@angular/router';
 import { ServerResponse } from '../../shared/models/server-response.model';
+import { last } from 'rxjs/operators';
 
 @Component({
   selector: 'app-sign-up',
@@ -34,8 +35,28 @@ export class SignUpComponent implements OnInit {
     if (!this.form.valid) {
       this.errorMessage = 'please fill in all the fields';
     } else {
-      this.submit();
+      const message = this.checkFormValidation(this.form.controls.firstName.value, this.form.controls.lastName.value);
+      if (message) {
+        this.errorMessage = message;
+      } else {
+        // this.submit();
+        alert('ok');
+      }
     }
+  }
+
+  checkFormValidation(firstName, lastName) {
+    let message = '';
+    if (firstName.length < 2) {
+      message = 'first name should be at least 2 characters';
+    } else if (firstName.length > 15) {
+      message = 'first name should be at most 15 characters';
+    } else if (lastName.length < 2) {
+      message = 'last name should be at least 2 characters';
+    } else if (lastName.length > 15) {
+      message = 'last name should be at most 15 characters';
+    }
+    return message;
   }
 
   submit() {
