@@ -1,6 +1,5 @@
 import { Body, Controller, Delete, Get, Param, Post, Put, Request, UseGuards } from '@nestjs/common';
 import { BaseController } from "../../shared/base-classes/base.controller";
-import { ServerResponse } from '../../../../shared/models/server-response.model';
 import { InsertResult } from "typeorm";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
@@ -25,7 +24,7 @@ export class AuthController extends BaseController {
   }
 
   @Post('sign-in')
-  async insert(@Body() user): Promise<ServerResponse | void> {
+  async insert(@Body() user) {
     try {
       const result: InsertResult = await this.userRepository.insert(user);
       if (result?.raw?.affectedRows !== 1) return this.errorResponse();

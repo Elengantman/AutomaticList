@@ -1,6 +1,5 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post, Put, Request, UseGuards } from '@nestjs/common';
 import { BaseController } from "../../shared/base-classes/base.controller";
-import { ServerResponse } from '../../../../shared/models/server-response.model';
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
 import { Department } from '../department/department.entity';
@@ -31,7 +30,7 @@ export class ProductSetupController extends BaseController {
   }
 
   @Post('/')
-  async update(@Body() products): Promise<ServerResponse | void> {
+  async update(@Body() products) {
     try {
       const result = await this.productRepository.save(products);
       if (result?.length !== products.length) return this.errorResponse('error updating product setup');

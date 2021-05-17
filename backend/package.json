@@ -1,5 +1,5 @@
 {
-  "name": "server",
+  "name": "backend",
   "version": "0.0.1",
   "description": "",
   "author": "",
@@ -12,7 +12,7 @@
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
-    "start:prod": "node dist/server/main",
+    "start:prod": "node dist/backend/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -20,7 +20,7 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "tsc:watch": "tsc --watch",
-    "nodemon:watch": "nodemon --watch \"dist/**\" --ext \"js,json\" --ignore \"dist/**/*.spec.ts\" \"dist/server/src/main.js\"",
+    "nodemon:watch": "nodemon --watch \"dist/**\" --ext \"js,json\" --ignore \"dist/**/*.spec.ts\" \"dist/backend/src/main.js\"",
     "dev": "tsc && run-p tsc:watch nodemon:watch"
   },
   "dependencies": {

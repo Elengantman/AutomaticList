@@ -1,7 +1,6 @@
 import { Body, Controller, Delete, Get, Param, Post, Put, Request, UseGuards } from '@nestjs/common';
 import { BaseController } from "../../shared/base-classes/base.controller";
 import { Product } from "./product.entity";
-import { ServerResponse } from '../../../../shared/models/server-response.model';
 import { InsertResult } from "typeorm";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
@@ -36,7 +35,7 @@ export class ProductController extends BaseController {
   }
 
   @Post('/')
-  async insert(@Body() product): Promise<ServerResponse | void> {
+  async insert(@Body() product) {
     try {
       const result: InsertResult = await this.productRepository.insert(product);
       if (result?.raw?.affectedRows !== 1) return this.errorResponse();
@@ -58,5 +57,4 @@ export class ProductController extends BaseController {
       return this.exceptionResponse(e.message);
     }
   }
-
 }
