@@ -4,7 +4,6 @@ import { AuthService } from '../../shared/services/auth.service';
 import { ApiService } from '../../shared/services/api.service';
 import { Router } from '@angular/router';
 import { ServerResponse } from '../../shared/models/server-response.model';
-import { last } from 'rxjs/operators';
 
 @Component({
   selector: 'app-sign-up',

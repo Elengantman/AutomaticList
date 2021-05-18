@@ -15,6 +15,10 @@ export class MyListComponent {
   constructor(private apiService: ApiService,
               private authService: AuthService,
               private toastrService: ToastrService) {
+    this.fetchData();
+  }
+
+  fetchData() {
     this.apiService.get(`my-list/${this.authService.user.userName}`).subscribe((response: ServerResponse) => {
       if (!response?.isSuccess) {
         this.toastrService.error(response?.error?.message || 'error getting my products');
@@ -44,6 +48,7 @@ export class MyListComponent {
         if (!response.isSuccess) {
           this.toastrService.error(response?.error?.message || 'error updating my list');
         } else {
+          this.fetchData();
           this.toastrService.success('my list was updated successfully');
         }
       });
