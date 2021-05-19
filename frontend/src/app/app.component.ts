@@ -7,17 +7,4 @@ import { AuthService } from './shared/services/auth.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'client';
-
-  constructor(public authService: AuthService,
-              private router: Router) {
-    // let page;
-    // if (!this.authService.isLoggedIn) {
-    //   page = 'login';
-    // } else {
-    //   page = 'update-list';
-    // }
-    // this.router.navigate([page]);
-  }
-}
+export class AppComponent {}

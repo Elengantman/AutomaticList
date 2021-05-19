@@ -53,10 +53,6 @@ export class ProductSetupComponent {
     });
   }
 
-  onSelectDepartment(department) {
-    this.addedDepartmentId = department.id;
-  }
-
   onClickAdd() {
     this.isAddState = true;
     if (this.addForm.controls.name.value.length < 2) {

@@ -22,8 +22,6 @@ export class RecommendController extends BaseController {
   @Get(':userName')
   async temp(@Param('userName') userName) {
     try {
-
-
       const backDate = this.getBackDate(this.BACK_DAYS);
 
       const requests = [
