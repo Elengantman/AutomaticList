@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ApiService } from '../../shared/services/api.service';
 import { ToastrService } from 'ngx-toastr';
 import { forkJoin } from 'rxjs';
+import { AuthService } from '../../shared/services/auth.service';
 
 @Component({
   selector: 'app-client-report',
@@ -11,15 +12,28 @@ import { forkJoin } from 'rxjs';
 })
 export class ClientReportComponent {
   userName = '';
+  fullName;
   productId = -1;
   productName = '';
   dateRange;
   users;
   products;
+  isAdmin;
 
   constructor(private router: Router,
               private apiService: ApiService,
-              private toastrService: ToastrService) {
+              private toastrService: ToastrService,
+              private authService: AuthService) {
+    this.isAdmin = this.authService.isAdmin;
+    if (this.isAdmin) {
+      this.fetchData();
+    } else {
+      this.fullName = `${this.authService.user.firstName} ${this.authService.user.lastName}`;
+      this.navigateToTablePage({ userName: this.authService.user.userName });
+    }
+  }
+
+  fetchData() {
     const requests = {
       users: this.apiService.get(`user`),
       products: this.apiService.get(`product`)
@@ -35,8 +49,9 @@ export class ClientReportComponent {
     });
   }
 
-  onSelectUser(ix) {
-    this.userName = this.users[ix].userName;
+  onSelectUser(userIx) {
+    this.userName = this.users[userIx].userName;
+    this.fullName = this.users[userIx].name;
   }
 
   onSelectProduct(ix) {
@@ -46,12 +61,16 @@ export class ClientReportComponent {
   }
 
   onClickSubmit() {
-    const state: any = { userName: this.userName };
-    if (this.productId !== -1) state.productId = this.productId;
+    const query: any = { userName: this.userName };
+    if (this.productId !== -1) query.productId = this.productId;
     if (this.dateRange) {
-      state.fromDate = this.dateRange[0].toISOString().substr(0, 10);
-      state.toDate = this.dateRange[1].toISOString().substr(0, 10);
+      query.fromDate = this.dateRange[0].toISOString().substr(0, 10);
+      query.toDate = this.dateRange[1].toISOString().substr(0, 10);
     }
-    this.router.navigate(['client-report-table'], { state });
+    this.navigateToTablePage(query);
+  }
+
+  navigateToTablePage(query) {
+    this.router.navigate(['client-report-table'], { state: { query, fullName: this.fullName }});
   }
 }

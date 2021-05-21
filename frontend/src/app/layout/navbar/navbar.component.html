@@ -1,14 +1,14 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav *ngIf="authService.isLoggedIn" class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="vertical-center">
-    <a class="navbar-brand" [routerLink]="'recommended-list'">Automatic List</a>
+    <a class="navbar-brand" [routerLink]="'/'">Automatic List</a>
 
     <div class="collapse navbar-collapse vertical-center">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item"><a class="nav-link" [routerLink]="'recommended-list'" [routerLinkActive]="'active'">Recommended List</a></li>
-        <li class="nav-item"><a class="nav-link" [routerLink]="'my-list'" [routerLinkActive]="'active'">My List</a></li>
-        <li class="nav-item"><a class="nav-link" [routerLink]="'purchase'" [routerLinkActive]="'active'">Purchase</a></li>
+        <li *ngIf="!authService.isAdmin" class="nav-item"><a class="nav-link" [routerLink]="'recommended-list'" [routerLinkActive]="'active'">Recommended List</a></li>
+        <li *ngIf="!authService.isAdmin" class="nav-item"><a class="nav-link" [routerLink]="'my-list'" [routerLinkActive]="'active'">My List</a></li>
+        <li *ngIf="!authService.isAdmin" class="nav-item"><a class="nav-link" [routerLink]="'purchase'" [routerLinkActive]="'active'">Purchase</a></li>
         <li *ngIf="authService.isAdmin" class="nav-item"><a class="nav-link" [routerLink]="'client-grocery-list'" [routerLinkActive]="'active'">Client Grocery List</a></li>
-        <li *ngIf="authService.isAdmin" class="nav-item"><a class="nav-link" [routerLink]="'client-report'" [routerLinkActive]="'active'">Client Report</a></li>
+        <li class="nav-item"><a class="nav-link" [routerLink]="'client-report'" [routerLinkActive]="'active'">{{authService.isAdmin ? 'Client Report' : 'Purchase Report'}}</a></li>
         <li *ngIf="authService.isAdmin" class="nav-item"><a class="nav-link" [routerLink]="'product-setup'" [routerLinkActive]="'active'">Product Setup</a></li>
       </ul>
     </div>

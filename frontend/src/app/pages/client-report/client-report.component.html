@@ -1,8 +1,8 @@
-<div class="form-title">CLIENT'S REPORT</div>
+<div class="form-title">CLIENT'S PURCHASE REPORT</div>
 
 
 <table class="form-table" *ngIf="users && products">
-  <tr>
+  <tr *ngIf="isAdmin">
     <td>Select a client:</td>
     <td class="input-cell">
       <div class="btn-group" dropdown>

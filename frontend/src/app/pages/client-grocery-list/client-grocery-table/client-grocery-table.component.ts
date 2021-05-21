@@ -11,17 +11,19 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ClientGroceryTableComponent {
   userName;
-  rows;
+  fullName;
+  products;
 
   constructor(private router: Router,
               private apiService: ApiService,
               private toastrService: ToastrService) {
     this.userName = this.router.getCurrentNavigation().extras?.state?.userName;
-    this.apiService.post(`purchase/report/${this.userName}`, {}).subscribe((response: ServerResponse) => {
+    this.fullName = this.router.getCurrentNavigation().extras?.state?.fullName?.toUpperCase();
+    this.apiService.post(`recommend/report/${this.userName}`, {}).subscribe((response: ServerResponse) => {
       if (!response?.isSuccess) {
         this.toastrService.error(response?.error?.message || 'error getting purchase list');
       } else {
-        this.rows = response.data;
+        this.products = response.data;
       }
     });
   }

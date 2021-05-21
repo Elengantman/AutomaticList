@@ -11,6 +11,7 @@ import { ServerResponse } from '../../shared/models/server-response.model';
 })
 export class ClientGroceryListComponent {
   userName = '';
+  fullName;
   users;
 
   constructor(private router: Router,
@@ -25,12 +26,13 @@ export class ClientGroceryListComponent {
     });
   }
 
-  onSelectUser(ix) {
-    this.userName = this.users[ix].userName;
+  onSelectUser(userIx) {
+    this.userName = this.users[userIx].userName;
+    this.fullName = this.users[userIx].name;
   }
 
   onClickSubmit() {
-    this.router.navigate(['client-grocery-table'], { state: { userName: this.userName }});
+    this.router.navigate(['client-grocery-table'], { state: { userName: this.userName, fullName: this.fullName }});
   }
 
 }

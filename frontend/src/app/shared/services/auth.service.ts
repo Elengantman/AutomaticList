@@ -6,14 +6,14 @@ import { Role } from '../enums/role.enum';
   providedIn: 'root'
 })
 export class AuthService {
-  // user: User;
-  // isLoggedIn = false;
-  // isAdmin = true;
+  user: User;
+  isLoggedIn = false;
+  isAdmin = false;
 
   // TODO: test only
-  user: User = { userName: 'zohars', firstName: 'Zohar', lastName: 'Sabari', role: Role.Admin, email: 'a', password: 'a' };
-  isLoggedIn = true;
-  isAdmin = true;
+  // user: User = { userName: 'zohars', firstName: 'Zohar', lastName: 'Sabari', role: Role.Admin, email: 'a', password: 'a' };
+  // isLoggedIn = true;
+  // isAdmin = false;
 
   setUser(user: User) {
     this.user = user;

@@ -1,20 +1,14 @@
-<div class="form-title">CLIENT GROCERY TABLE</div>
+<div class="form-title">GROCERY LIST FOR {{fullName}}</div>
 
-<ngx-datatable *ngIf="rows" [rows]="rows">
-  <ngx-datatable-column name="Date"  prop="date" [sortable]="true">
-    <ng-template let-value="value" ngx-datatable-cell-template>
-      {{ value }}
-    </ng-template>
-  </ngx-datatable-column>
-
+<ngx-datatable *ngIf="products" [rows]="products" [sorts]="[{ prop: 'name' }]">
   <ngx-datatable-column name="Product" prop="name" [sortable]="true">
     <ng-template let-value="value" ngx-datatable-cell-template>{{value}}
     </ng-template>
   </ngx-datatable-column>
 
-  <ngx-datatable-column name="Quantity" prop="quantity">
+  <ngx-datatable-column name="Quantity" prop="quantity" headerClass="horizontal-center" cellClass="horizontal-center">
     <ng-template let-value="value" ngx-datatable-cell-template>
-      <span class="horizontal-right quantity-cell">{{ value }}</span>
+      <span *ngIf="value > 0" class="quantity-value hor">{{value}}</span>
     </ng-template>
   </ngx-datatable-column>
 </ngx-datatable>

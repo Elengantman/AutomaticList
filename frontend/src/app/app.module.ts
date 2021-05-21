@@ -27,9 +27,10 @@ import { AdminGuard } from './shared/guards/admin.guard';
 import { ToastrModule } from 'ngx-toastr';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
+import { StartComponent } from './pages/start/start.component';
 
 const routes = [
-  { path: '',  redirectTo: 'recommended-list', pathMatch: 'full' },
+  { path: '',  component: StartComponent, pathMatch: 'full', canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'recommended-list', component: RecommendedListComponent, canActivate: [AuthGuard] },
@@ -37,8 +38,8 @@ const routes = [
   { path: 'purchase', component: PurchaseComponent, canActivate: [AuthGuard] },
   { path: 'client-grocery-list', component: ClientGroceryListComponent, canActivate: [AuthGuard, AdminGuard] },
   { path: 'client-grocery-table', component: ClientGroceryTableComponent, canActivate: [AuthGuard, AdminGuard] },
-  { path: 'client-report', component: ClientReportComponent, canActivate: [AuthGuard, AdminGuard] },
-  { path: 'client-report-table', component: ClientReportTableComponent, canActivate: [AuthGuard, AdminGuard] },
+  { path: 'client-report', component: ClientReportComponent, canActivate: [AuthGuard] },
+  { path: 'client-report-table', component: ClientReportTableComponent, canActivate: [AuthGuard] },
   { path: 'product-setup', component: ProductSetupComponent, canActivate: [AuthGuard, AdminGuard] },
 ];
 
@@ -55,7 +56,8 @@ const routes = [
     ClientGroceryTableComponent,
     ProductSetupComponent,
     MyListComponent,
-    ClientReportTableComponent
+    ClientReportTableComponent,
+    StartComponent
   ],
   imports: [
     BrowserModule,

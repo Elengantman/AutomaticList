@@ -1,4 +1,4 @@
-<div class="form-title">CLIENT'S REPORT</div>
+<div class="form-title">PURCHASE REPORT <span *ngIf="isAdmin"> FOR {{fullName}}</span></div>
 
 <ngx-datatable *ngIf="rows" [rows]="rows">
   <ngx-datatable-column name="Date"  prop="date" [sortable]="true">
