@@ -61,7 +61,7 @@ CREATE TABLE `my_list` (
 
 LOCK TABLES `my_list` WRITE;
 /*!40000 ALTER TABLE `my_list` DISABLE KEYS */;
-INSERT INTO `my_list` VALUES ('didim',1),('didim',2),('zohars',1),('zohars',4),('zohars',5),('zohars',6),('zohars',11);
+INSERT INTO `my_list` VALUES ('didim',1),('didim',2),('eleng',1),('eleng',4),('eleng',5),('eleng',6),('eleng',11);
 /*!40000 ALTER TABLE `my_list` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -116,7 +116,7 @@ CREATE TABLE `purchase` (
 
 LOCK TABLES `purchase` WRITE;
 /*!40000 ALTER TABLE `purchase` DISABLE KEYS */;
-INSERT INTO `purchase` VALUES ('zohars','2021-05-16 08:00:05.710-1988','2021-05-16',1,5),('zohars','2021-05-16 08:00:05.710-1988','2021-05-16',2,12),('zohars','2021-05-16 12:26:07.539-9535','2021-05-16',1,15),('zohars','2021-05-16 12:26:07.539-9535','2021-05-16',2,112),('zohars','2021-05-16 12:31:34.964-6953','2021-04-17',4,5),('zohars','2021-05-17 11:06:54.327-9957','2021-05-03',4,1),('zohars','2021-05-17 11:06:54.327-9957','2021-05-16',5,2),('zohars','2021-05-17 11:06:54.327-9957','2021-05-17',6,3),('zohars','2021-05-17 13:43:40.660-8126','2021-05-17',1,12),('zohars','2021-05-17 20:53:42.545-0687','2021-05-17',4,2),('zohars','2021-05-17 20:53:42.545-0687','2021-05-17',5,5),('zohars','2021-05-18 21:03:14.719-7339','2021-05-18',4,2);
+INSERT INTO `purchase` VALUES ('eleng','2021-05-16 08:00:05.710-1988','2021-05-16',1,5),('eleng','2021-05-16 08:00:05.710-1988','2021-05-16',2,12),('eleng','2021-05-16 12:26:07.539-9535','2021-05-16',1,15),('eleng','2021-05-16 12:26:07.539-9535','2021-05-16',2,112),('eleng','2021-05-16 12:31:34.964-6953','2021-04-17',4,5),('eleng','2021-05-17 11:06:54.327-9957','2021-05-03',4,1),('eleng','2021-05-17 11:06:54.327-9957','2021-05-16',5,2),('eleng','2021-05-17 11:06:54.327-9957','2021-05-17',6,3),('eleng','2021-05-17 13:43:40.660-8126','2021-05-17',1,12),('eleng','2021-05-17 20:53:42.545-0687','2021-05-17',4,2),('eleng','2021-05-17 20:53:42.545-0687','2021-05-17',5,5),('eleng','2021-05-18 21:03:14.719-7339','2021-05-18',4,2);
 /*!40000 ALTER TABLE `purchase` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -144,7 +144,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES ('davidb','David','Bowie','db@mail.com','123456','User'),('didim','Didi','Manusi','dm@mail.com','123456','User'),('elenm','Elen','Guntman','eg@mail.com','123456','Admin'),('mariahc','Mariah','Carey','mc@mail','123456','User'),('zohars','Zohar','Sabari','zs@mail.com','123456','Admin');
+INSERT INTO `user` VALUES ('davidb','David','Bowie','db@mail.com','123456','User'),('didim','Didi','Manusi','dm@mail.com','123456','User'),('eleng','Elen','Guntman','eg@mail.com','123456','Admin'),('mariahc','Mariah','Carey','mc@mail','123456','User'),('zohars','Zohar','Sabari','zs@mail.com','123456','Admin');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -157,4 +157,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-19  0:07:40
+-- Dump completed on 2021-05-27 14:31:16
