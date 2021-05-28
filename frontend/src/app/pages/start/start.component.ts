@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
 export class StartComponent {
   constructor(private authService: AuthService,
               private router: Router) {
-    console.log('StartComponent con');
     const route = this.authService.isAdmin ? 'client-grocery-list' : 'recommended-list';
     this.router.navigate([route]);
   }

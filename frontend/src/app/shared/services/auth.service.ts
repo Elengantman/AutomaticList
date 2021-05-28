@@ -11,7 +11,7 @@ export class AuthService {
   isAdmin = false;
 
   // TODO: test only
-  // user: User = { userName: 'zohars', firstName: 'Zohar', lastName: 'Sabari', role: Role.Admin, email: 'a', password: 'a' };
+  // user: User = { userName: 'eleng', firstName: 'Elen', lastName: 'Guntman', role: Role.User, email: 'a', password: 'a' };
   // isLoggedIn = true;
   // isAdmin = false;
 

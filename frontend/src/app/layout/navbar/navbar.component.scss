@@ -1,7 +1,10 @@
+@import 'variables';
+
 .navbar {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  height: $navbar-height;
 
   .navbar-brand {
     padding-top: 0;

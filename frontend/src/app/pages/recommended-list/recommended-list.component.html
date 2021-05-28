@@ -2,8 +2,7 @@
 
 <ngx-datatable *ngIf="products" [rows]="products" [sorts]="[{ prop: 'name' }]">
   <ngx-datatable-column name="Product" prop="name" [sortable]="true">
-    <ng-template let-value="value" ngx-datatable-cell-template>{{value}}
-    </ng-template>
+    <ng-template let-value="value" ngx-datatable-cell-template>{{value}}</ng-template>
   </ngx-datatable-column>
 
   <ngx-datatable-column name="Quantity" prop="quantity" headerClass="horizontal-center" cellClass="horizontal-center">

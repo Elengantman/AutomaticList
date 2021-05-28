@@ -38,8 +38,7 @@ export class SignUpComponent implements OnInit {
       if (message) {
         this.errorMessage = message;
       } else {
-        // this.submit();
-        alert('ok');
+        this.submit();
       }
     }
   }

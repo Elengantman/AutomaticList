@@ -19,7 +19,7 @@ export class RecommendedListComponent {
       if (!response?.isSuccess) {
         this.toastrService.error(response?.error?.message || 'error getting recommend list');
       } else {
-        this.products = response.data.map(item => ({ ...item, isOrgSelected: item.isSelected  }));
+        this.products = response.data;
       }
     });
   }

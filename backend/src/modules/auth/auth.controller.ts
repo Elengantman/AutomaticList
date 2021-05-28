@@ -23,7 +23,7 @@ export class AuthController extends BaseController {
     }
   }
 
-  @Post('sign-in')
+  @Post('sign-up')
   async insert(@Body() user) {
     try {
       const result: InsertResult = await this.userRepository.insert(user);
