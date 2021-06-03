@@ -19,7 +19,7 @@ export class ClientGroceryTableComponent {
               private toastrService: ToastrService) {
     this.userName = this.router.getCurrentNavigation().extras?.state?.userName;
     this.fullName = this.router.getCurrentNavigation().extras?.state?.fullName?.toUpperCase();
-    this.apiService.post(`recommend/report/${this.userName}`, {}).subscribe((response: ServerResponse) => {
+    this.apiService.get(`recommend/${this.userName}`).subscribe((response: ServerResponse) => {
       if (!response?.isSuccess) {
         this.toastrService.error(response?.error?.message || 'error getting purchase list');
       } else {
