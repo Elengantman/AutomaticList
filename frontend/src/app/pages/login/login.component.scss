@@ -1,3 +1,15 @@
-.form-control {
+.input-field {
   width: 16rem;
 }
+
+.input-group {
+  input {
+    border-right: none;
+  }
+
+  .input-group-text {
+    background: white;
+    border-left: none;
+  }
+}
+

@@ -1,6 +1,4 @@
 .add-form {
-  //margin-bottom: 2rem;
-
   .field {
     margin-inline-end: 1rem;
   }
@@ -18,6 +16,11 @@
   visibility: visible;
 }
 
+.filter {
+  width: 20rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
 
 .quantity-value {
   width: 5rem;

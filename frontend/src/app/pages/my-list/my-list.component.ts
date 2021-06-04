@@ -10,6 +10,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./my-list.component.scss']
 })
 export class MyListComponent {
+  allProducts;
   products;
 
   constructor(private apiService: ApiService,
@@ -23,16 +24,26 @@ export class MyListComponent {
       if (!response?.isSuccess) {
         this.toastrService.error(response?.error?.message || 'error getting my products');
       } else {
-        this.products = response.data.map(item => ({ ...item, isOrgSelected: item.isSelected  }));
+        this.allProducts = response.data.map(item => ({ ...item, isOrgSelected: item.isSelected  }));
+        this.products = this.allProducts;
       }
     });
+  }
+
+  updateFilter(filter) {
+    if (!filter) {
+      this.products = this.allProducts;
+    } else {
+      filter = filter.toLowerCase();
+      this.products = this.allProducts.filter(product => product.name.toLowerCase().includes(filter));
+    }
   }
 
   onClickSubmit() {
     const add = [];
     const remove = [];
 
-    for (const product of this.products) {
+    for (const product of this.allProducts) {
       if (product.isSelected && !product.isOrgSelected) {
         add.push(product.id);
       } else if (!product.isSelected && product.isOrgSelected) {

@@ -2,6 +2,11 @@
   <div class="subtitle">please select items for your grocery list</div>
 </div>
 
+<input #filter class="form-control filter"
+       placeholder="Find a product"
+    (keyup)="updateFilter(filter.value)"
+/>
+
 <ngx-datatable *ngIf="products" [rows]="products" [sorts]="[{ prop: 'name' }]">
   <ngx-datatable-column name="Product" prop="name">
     <ng-template ngx-datatable-header-template>

@@ -28,6 +28,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { StartComponent } from './pages/start/start.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 const routes = [
   { path: '',  component: StartComponent, pathMatch: 'full', canActivate: [AuthGuard] },
@@ -74,6 +75,7 @@ const routes = [
     ToastrModule.forRoot(),
     ModalModule.forRoot(),
     TypeaheadModule.forRoot(),
+    NgSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

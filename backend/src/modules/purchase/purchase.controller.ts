@@ -31,10 +31,11 @@ export class PurchaseController extends BaseController {
     }
   }
 
-  @Post('report/:userName')
+  @Post('report')
   async report(@Param('userName') userName, @Body() query) {
     try {
-      const purchaseQuery: any = { where: { userName }, order: { date: 'DESC' } };
+      const purchaseQuery: any = { where: {}, order: { date: 'DESC' } };
+      if (query?.userName) purchaseQuery.where.userName = query.userName;
       if (query?.productId) purchaseQuery.where.productId = query.productId;
       if (query?.fromDate) purchaseQuery.where.date = Between(query.fromDate, query.toDate);
       const requests = [this.purchaseRepository.find(purchaseQuery), this.productRepository.find()] as Promise<any>[];

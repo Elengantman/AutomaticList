@@ -11,9 +11,9 @@ export class AuthService {
   isAdmin = false;
 
   // TODO: test only
-  // user: User = { userName: 'eleng', firstName: 'Elen', lastName: 'Guntman', role: Role.User, email: 'a', password: 'a' };
+  // user: User = { userName: 'eleng', firstName: 'Elen', lastName: 'Guntman', role: Role.Admin, email: 'a', password: 'a' };
   // isLoggedIn = true;
-  // isAdmin = false;
+  // isAdmin = this.user.role === Role.Admin;
 
   setUser(user: User) {
     this.user = user;

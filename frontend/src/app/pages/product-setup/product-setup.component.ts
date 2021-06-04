@@ -13,6 +13,7 @@ import { forkJoin } from 'rxjs';
   styleUrls: ['./product-setup.component.scss']
 })
 export class ProductSetupComponent {
+  allProducts;
   products;
   departments;
   departmentNames;
@@ -48,7 +49,8 @@ export class ProductSetupComponent {
       } else {
         this.departments = response.departments.data;
         this.departmentNames = this.departments.map(department => department.name);
-        this.products = response.productSetup.data.map(product => ({ ...product, orgPrice: product.price  }));
+        this.allProducts = response.productSetup.data.map(product => ({ ...product, orgPrice: product.price  }));
+        this.products = this.allProducts;
       }
     });
   }
@@ -114,8 +116,17 @@ export class ProductSetupComponent {
     });
   }
 
+  updateFilter(filter) {
+    if (!filter) {
+      this.products = this.allProducts;
+    } else {
+      filter = filter.toLowerCase();
+      this.products = this.allProducts.filter(product => product.name.toLowerCase().includes(filter));
+    }
+  }
+
   onClickSubmit() {
-    const data = this.products
+    const data = this.allProducts
         .filter(product => product.price !== product.orgPrice)
         .map(product => ({ id: product.id, price: product.price }));
     if (data.length === 0) {

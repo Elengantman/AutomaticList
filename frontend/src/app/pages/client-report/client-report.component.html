@@ -1,49 +1,30 @@
 <div class="form-title">CLIENT'S PURCHASE REPORT</div>
 
+<div *ngIf="users" class="vertical-center">
+  <span class="label">Select a client:</span>
+  <ng-select [items]="users"
+             bindLabel="name"
+             bindValue="id"
+             (change)="onSelectUser($event)">
+  </ng-select>
+</div>
 
-<table class="form-table" *ngIf="users && products">
-  <tr *ngIf="isAdmin">
-    <td>Select a client:</td>
-    <td class="input-cell">
-      <div class="btn-group" dropdown>
-        <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle condensed">
-          <span *ngIf="userName !== ''" class="selected-dropdown-label">{{userName}}</span> <span class="caret"></span>
-        </button>
-        <ul *dropdownMenu class="dropdown-menu">
-          <li *ngFor="let user of users; let ix = index" role="menuitem" (click)="onSelectUser(ix)">
-            <a class="dropdown-item">{{user.name}}</a>
-          </li>
-        </ul>
-      </div>
-    </td>
-  </tr>
+<div *ngIf="products" class="vertical-center">
+  <span class="label">Select a product:</span>
+  <ng-select [items]="products"
+             bindLabel="name"
+             bindValue="id"
+             (change)="onSelectProduct($event)">
+  </ng-select>
+</div>
 
-  <tr>
-    <td>Select a product:</td>
-    <td class="input-cell">
-      <div class="btn-group" dropdown>
-        <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle condensed">
-          <span *ngIf="productName !== ''" class="selected-dropdown-label">{{productName}}</span> <span class="caret"></span>
-        </button>
-        <ul *dropdownMenu class="dropdown-menu">
-          <li *ngFor="let product of products; let ix = index" role="menuitem" (click)="onSelectProduct(ix)">
-            <a class="dropdown-item">{{product.name}}</a>
-          </li>
-        </ul>
-      </div>
-    </td>
-  </tr>
+<div class="vertical-center">
+  <span class="label">Select date range:</span>
+  <input type="text"
+         class="form-control"
+         bsDaterangepicker
+         [(ngModel)]="dateRange"
+         [bsConfig]="{ rangeInputFormat : 'DD/MM/YYYY' }">
+</div>
 
-  <tr>
-    <td>Select date range:</td>
-    <td class="input-cell">
-      <input type="text"
-             class="form-control"
-             bsDaterangepicker
-             [(ngModel)]="dateRange"
-             [bsConfig]="{ rangeInputFormat : 'DD/MM/YYYY' }">
-    </td>
-  </tr>
-</table>
-
-<button class="show-report btn btn-primary" (click)="onClickSubmit()" [disabled]="userName===''">SHOW REPORT</button>
+<button class="show-report btn btn-primary" (click)="onClickSubmit()">SHOW REPORT</button>

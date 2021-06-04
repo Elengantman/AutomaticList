@@ -18,6 +18,13 @@
 
 <div class="error-message">{{addErrorMessage}}</div>
 
+<hr/>
+
+<input #filter class="form-control filter"
+       placeholder="Find a product"
+       (keyup)="updateFilter(filter.value)"
+/>
+
 <table class="form-table condensed">
   <tr>
     <th>Product</th>

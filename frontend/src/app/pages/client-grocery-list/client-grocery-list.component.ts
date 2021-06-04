@@ -10,9 +10,8 @@ import { ServerResponse } from '../../shared/models/server-response.model';
   styleUrls: ['./client-grocery-list.component.scss']
 })
 export class ClientGroceryListComponent {
-  userName = '';
-  fullName;
   users;
+  selectedUser;
 
   constructor(private router: Router,
               private apiService: ApiService,
@@ -26,13 +25,12 @@ export class ClientGroceryListComponent {
     });
   }
 
-  onSelectUser(userIx) {
-    this.userName = this.users[userIx].userName;
-    this.fullName = this.users[userIx].name;
+  onSelectUser(selectedUser) {
+    this.selectedUser = selectedUser;
   }
 
   onClickSubmit() {
-    this.router.navigate(['client-grocery-table'], { state: { userName: this.userName, fullName: this.fullName }});
+    this.router.navigate(['client-grocery-table'], { state: { userName: this.selectedUser.userName, fullName: this.selectedUser.name }});
   }
 
 }

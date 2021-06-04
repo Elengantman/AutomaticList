@@ -1,19 +1,12 @@
 <div class="form-title">CLIENT'S GROCERY LIST</div>
 
-<div class="vertical-center" *ngIf="users">
-  <div class="dropdown-label">Select a client:</div>
-  <div class=" input-cell">
-    <div class="btn-group" dropdown>
-      <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle condensed">
-        <span *ngIf="userName !== ''" class="selected-dropdown-label">{{userName}}</span> <span class="caret"></span>
-      </button>
-      <ul *dropdownMenu class="dropdown-menu">
-        <li *ngFor="let client of users; let ix = index" role="menuitem" (click)="onSelectUser(ix)">
-          <a class="dropdown-item">{{client.name}}</a>
-        </li>
-      </ul>
-    </div>
-  </div>
+<div *ngIf="users" class="vertical-center">
+  <span>Select a Client:</span>
+  <ng-select [items]="users"
+             bindLabel="name"
+             bindValue="id"
+             (change)="onSelectUser($event)">
+  </ng-select>
 </div>
 
-<button class="show-report btn btn-primary" (click)="onClickSubmit()" [disabled]="userName===''">SHOW LIST</button>
+<button class="show-report btn btn-primary" (click)="onClickSubmit()" [disabled]="!selectedUser">SHOW LIST</button>

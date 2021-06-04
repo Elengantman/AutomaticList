@@ -23,7 +23,7 @@ export class ClientReportTableComponent {
     const state = this.router.getCurrentNavigation().extras.state;
     const query = state.query;
     this.fullName = state.fullName.toUpperCase();
-    this.apiService.post(`purchase/report/${query.userName}`, query).subscribe((response: ServerResponse) => {
+    this.apiService.post(`purchase/report`, query).subscribe((response: ServerResponse) => {
       if (!response?.isSuccess) {
         this.toastrService.error(response?.error?.message || 'error getting purchase list');
       } else {

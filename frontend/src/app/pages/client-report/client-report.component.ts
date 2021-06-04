@@ -11,14 +11,12 @@ import { AuthService } from '../../shared/services/auth.service';
   styleUrls: ['./client-report.component.scss']
 })
 export class ClientReportComponent {
-  userName = '';
-  fullName;
-  productId = -1;
-  productName = '';
   dateRange;
   users;
   products;
   isAdmin;
+  selectedUser;
+  selectedProduct;
 
   constructor(private router: Router,
               private apiService: ApiService,
@@ -28,7 +26,6 @@ export class ClientReportComponent {
     if (this.isAdmin) {
       this.fetchData();
     } else {
-      this.fullName = `${this.authService.user.firstName} ${this.authService.user.lastName}`;
       this.navigateToTablePage({ userName: this.authService.user.userName });
     }
   }
@@ -49,28 +46,34 @@ export class ClientReportComponent {
     });
   }
 
-  onSelectUser(userIx) {
-    this.userName = this.users[userIx].userName;
-    this.fullName = this.users[userIx].name;
+  onSelectUser(selectedUser) {
+    this.selectedUser = selectedUser;
   }
 
-  onSelectProduct(ix) {
-    const product = this.products[ix];
-    this.productId = product.id;
-    this.productName = product.name;
+  onSelectProduct(selectedProduct) {
+    this.selectedProduct = selectedProduct;
   }
 
   onClickSubmit() {
-    const query: any = { userName: this.userName };
-    if (this.productId !== -1) query.productId = this.productId;
+    const query: any = {};
+    if (this.selectedUser) query.userName = this.selectedUser.userName;
+    if (this.selectedProduct) query.productId = this.selectedProduct.id;
     if (this.dateRange) {
-      query.fromDate = this.dateRange[0].toISOString().substr(0, 10);
-      query.toDate = this.dateRange[1].toISOString().substr(0, 10);
+      query.fromDate = this.getDateString(this.dateRange[0]);
+      query.toDate = this.getDateString(this.dateRange[1]);
     }
     this.navigateToTablePage(query);
   }
 
   navigateToTablePage(query) {
-    this.router.navigate(['client-report-table'], { state: { query, fullName: this.fullName }});
+    this.router.navigate(['client-report-table'], { state: { query, fullName: this.getFullName() }});
+  }
+
+  getDateString(date) {
+    return new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toISOString().substr(0, 10);
+  }
+
+  getFullName() {
+    return this.isAdmin ?  this.selectedUser?.name || '' : `${this.authService.user.firstName} ${this.authService.user.lastName}`;
   }
 }

@@ -1,7 +1,21 @@
-.show-report {
-  margin-top: 2rem;
+.form-title {
+  margin-bottom: 2rem;
 }
 
-tr > td:first-child {
-  padding-inline-end: 2rem;
+.vertical-center {
+  margin-bottom: 1rem;
+}
+
+.label {
+  width: 9rem;
+}
+
+ng-select, .form-control {
+  display: inline-block;
+  width: 15rem;
+  margin-left: 1rem;
+}
+
+.show-report {
+  margin-top: 2rem;
 }
